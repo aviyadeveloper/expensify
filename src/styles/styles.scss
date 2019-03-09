@@ -1,0 +1,11 @@
+@import "./base/settings";
+@import "./base/base";
+
+p {
+  color: $color-primary-10;
+}
+
+.foobar {
+  font-size: $space-xxl;
+  font-family: Teko;
+}

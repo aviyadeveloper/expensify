@@ -1,0 +1,64 @@
+$desktop-breakpoint: 45rem;
+
+// Durations */
+/*********** */
+
+$speed-slow: 200ms;
+$speed-medium: 100ms;
+$speed-fast: 50ms;
+
+/* **************************************** */
+
+// Colors */
+/******** */
+
+// B & W */
+$color-black: #12141a;
+$color-white: #e2e2dc;
+
+// Primary color */
+$color-primary-10: #fa0b27;
+
+// Primary brights */
+$color-primary-00: #f88592;
+$color-primary-05: #f94a5f;
+
+// Primary darks */
+$color-primary-15: #ed001c;
+$color-primary-20: #ad0418;
+
+// Secondary color */
+$color-secondary-10: #14369c;
+
+// Secondary brights */
+$color-secondary-00: #768bca;
+$color-secondary-05: #4f6fd1;
+
+// Secondary darks */
+$color-secondary-15: #041d66;
+$color-secondary-20: #010d31;
+
+// Special color */
+$color-special-10: #ffed0b;
+
+// Special brights */
+$color-special-00: #fff688;
+$color-special-05: #fff24c;
+
+// Special darks */
+$color-special-15: #f8e500;
+$color-special-20: #b4a704;
+
+/* **************************************** */
+
+// Spacing */
+/********* */
+
+$space-xxs: 0.4rem;
+$space-xs: 0.8rem;
+$space-s: 1.6rem;
+$space-m: 2.4rem;
+$space-l: 3.2rem;
+$space-xl: 4rem;
+$space-xxl: 4.8rem;
+$space-xxxl: 5.6rem;
