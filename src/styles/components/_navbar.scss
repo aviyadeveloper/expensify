@@ -1,0 +1,37 @@
+.navbar {
+  align-items: center;
+  background-color: $color-secondary-15;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0px 2px 4px -2px black;
+}
+
+.navbar__app-title {
+  color: $color-primary-15;
+  font-family: Teko;
+  font-weight: 500;
+  font-size: $space-xxxl;
+  margin: $space-s;
+  text-shadow: 1px 1px $color-primary-00;
+  text-transform: uppercase;
+}
+
+.navbar__links-container {
+  flex-grow: 0.5;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar__links-container__link {
+  color: $color-secondary-00;
+  font-family: Teko;
+  font-weight: 400;
+  font-size: $space-l;
+  outline: none;
+  text-decoration: none;
+}
+
+.navbar__links-container__link.active-link {
+  color: $color-special-00;
+  font-weight: 500;
+}
