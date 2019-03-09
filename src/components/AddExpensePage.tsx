@@ -1,6 +1,6 @@
 import React from "react";
-interface IAddExpensePageProps {}
+import { RouteProps } from "react-router";
 
-export const AddExpensePage: React.SFC<IAddExpensePageProps> = props => (
+export const AddExpensePage: React.SFC<RouteProps> = props => (
   <h2>Expensify add expense page</h2>
 );

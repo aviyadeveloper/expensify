@@ -25,13 +25,6 @@ export const Header: React.SFC<IHeaderProps> = props => (
       <NavLink
         activeClassName="active-link"
         className="navbar__links-container__link"
-        to="/edit"
-      >
-        Edit Expense
-      </NavLink>
-      <NavLink
-        activeClassName="active-link"
-        className="navbar__links-container__link"
         to="/help"
       >
         Help

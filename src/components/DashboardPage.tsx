@@ -1,7 +1,6 @@
 import React from "react";
+import { RouteProps } from "react-router";
 
-interface IDashboardPageProps {}
-
-export const DashboardPage: React.SFC<IDashboardPageProps> = props => (
+export const DashboardPage: React.SFC<RouteProps> = props => (
   <h2>Expensify Dahsboard page</h2>
 );
