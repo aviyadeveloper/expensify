@@ -17,6 +17,7 @@
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
+    "uuid": "^3.3.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
@@ -26,9 +27,13 @@
     "@types/react-dom": "^16.8.2",
     "@types/react-modal": "^3.8.1",
     "@types/react-router-dom": "^4.3.1",
+    "@types/validator": "^10.9.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-modal": "^3.8.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0"
   }
 }
