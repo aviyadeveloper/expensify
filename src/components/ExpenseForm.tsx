@@ -8,7 +8,14 @@ import "react-dates/lib/css/_datepicker.css";
 
 type ExpenseFormProps = {
   onSubmit: (expense: Expense) => void;
+  name?: string;
+  description?: string;
+  amount?: number;
+  createdAt?: Moment;
+  calendarFocused?: boolean | null;
+  error?: string;
 };
+
 interface ExpenseFormState {
   name: string;
   description: string;
@@ -23,10 +30,11 @@ export class ExpenseForm extends React.Component<
   ExpenseFormState
 > {
   state: ExpenseFormState = {
-    name: "",
-    description: "",
-    amount: "",
-    createdAt: moment(),
+    name: this.props.name || "",
+    description: this.props.description || "",
+    amount: (this.props.amount && (this.props.amount / 100).toFixed(2)) || "",
+    createdAt:
+      (this.props.createdAt && moment(this.props.createdAt)) || moment(),
     calendarFocused: false,
     error: ""
   };

@@ -1,6 +1,7 @@
 import uuidv1 from "uuid/v1";
 import { Moment } from "moment";
 import moment = require("moment");
+import { Expense } from "../types/expensesTypes";
 
 // ADD_EXPENSE
 type AddExpenseProps = {
@@ -43,8 +44,14 @@ type EditExpenseUpdate = {
   amount?: number;
 };
 
-export const editExpense = (id: string, update: EditExpenseUpdate) => ({
+export const editExpense = (id: string, expense: Expense) => ({
   type: "EDIT_EXPENSE",
   id,
-  update
+  expense: {
+    id: id,
+    name: expense.name,
+    description: expense.description,
+    amount: expense.amount,
+    createdAt: expense.createdAt.valueOf()
+  }
 });
