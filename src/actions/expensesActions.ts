@@ -1,18 +1,20 @@
 import uuidv1 from "uuid/v1";
+import { Moment } from "moment";
+import moment = require("moment");
 
 // ADD_EXPENSE
 type AddExpenseProps = {
   name: string;
   description?: string;
   amount?: number;
-  createdAt?: number;
+  createdAt?: Moment;
 };
 
 export const addExpense = ({
   name = "",
   description = "",
   amount = 0,
-  createdAt = 0
+  createdAt = moment()
 }: AddExpenseProps) => ({
   type: "ADD_EXPENSE",
   expense: {
@@ -20,7 +22,7 @@ export const addExpense = ({
     name,
     description,
     amount,
-    createdAt
+    createdAt: createdAt.valueOf()
   }
 });
 

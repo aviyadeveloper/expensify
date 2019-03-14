@@ -1,11 +1,13 @@
 import { v1 } from "uuid/interfaces";
+import { Moment } from "moment";
 
 type Expense = {
-  id: v1;
+  id?: string;
   name: string;
   description: string;
-  amount: number;
-  createdAt: number;
+  amount: number | undefined;
+  createdAt: Moment;
+  [propName: string]: any;
 };
 
 export { Expense };
