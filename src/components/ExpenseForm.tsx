@@ -14,6 +14,7 @@ type ExpenseFormProps = {
   createdAt?: Moment;
   calendarFocused?: boolean | null;
   error?: string;
+  editMode?: boolean;
 };
 
 interface ExpenseFormState {
@@ -23,6 +24,7 @@ interface ExpenseFormState {
   createdAt: Moment;
   calendarFocused: boolean | null;
   error: string;
+  editMode?: boolean;
 }
 
 export class ExpenseForm extends React.Component<
@@ -36,7 +38,8 @@ export class ExpenseForm extends React.Component<
     createdAt:
       (this.props.createdAt && moment(this.props.createdAt)) || moment(),
     calendarFocused: false,
-    error: ""
+    error: "",
+    editMode: this.props.editMode
   };
   nameRef = React.createRef<HTMLInputElement>();
   descriptionRef = React.createRef<HTMLTextAreaElement>();
@@ -123,7 +126,7 @@ export class ExpenseForm extends React.Component<
             placeholder="description"
           />
           {this.state.error && <p>{this.state.error}</p>}
-          <button>Add</button>
+          <button>{this.props.editMode ? "Edit" : "Add"}</button>
         </form>
       </div>
     );

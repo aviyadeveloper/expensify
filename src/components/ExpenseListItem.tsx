@@ -13,13 +13,6 @@ const ExpenseListItem = (props: Expense) => (
     <p>
       <span>{props.amount}</span> / <span>{props.createdAt}</span>
     </p>
-    <button
-      onClick={() => {
-        props.dispatch(removeExpense({ id: props.id }));
-      }}
-    >
-      Delete
-    </button>
   </div>
 );
 
