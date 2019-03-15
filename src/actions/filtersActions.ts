@@ -1,3 +1,5 @@
+import { Moment } from "moment";
+
 // SET_NAME_FILTER
 export const setNameFilter = (
   name: string = ""
@@ -18,14 +20,16 @@ export const sortByAmount = (): { type: string } => ({
 
 // SET_START_DATE
 export const setStartDate = (
-  date?: number
-): { type: string; date?: number } => ({
+  date: Moment | null
+): { type: string; date: Moment | null } => ({
   type: "SET_START_DATE",
   date
 });
 
 // SET_END_DATE
-export const setEndDate = (date?: number): { type: string; date?: number } => ({
+export const setEndDate = (
+  date: Moment | null
+): { type: string; date: Moment | null } => ({
   type: "SET_END_DATE",
   date
 });

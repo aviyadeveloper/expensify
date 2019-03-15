@@ -1,10 +1,11 @@
 import { FiltersReducerState, FiltersSortBy } from "../types/filtersTypes";
+import moment = require("moment");
 
 const filtersReducerDefaultState: FiltersReducerState = {
   name: "",
   sortBy: FiltersSortBy.Date,
-  startDate: undefined,
-  endDate: undefined
+  startDate: moment().startOf("month"),
+  endDate: moment().endOf("month")
 };
 
 export default (

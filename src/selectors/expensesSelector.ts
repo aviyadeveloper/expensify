@@ -1,5 +1,6 @@
 import { Expense } from "../types/expensesTypes";
 import { FiltersReducerState, FiltersSortBy } from "../types/filtersTypes";
+import moment = require("moment");
 
 export default (
   expenses: Expense[],
@@ -7,14 +8,18 @@ export default (
 ): Expense[] => {
   return expenses
     .filter(expense => {
-      // const startDateMatch =
-      //   typeof startDate !== "number" || expense.createdAt >= startDate;
-      // const endDateMatch =
-      //   typeof endDate !== "number" || expense.createdAt <= endDate;
+      const startDateMatch = startDate
+        ? startDate.isSameOrBefore(moment(expense.createdAt))
+        : true;
+
+      const endDateMatch = endDate
+        ? endDate.isSameOrAfter(moment(expense.createdAt))
+        : true;
+
       const nameMatch =
         typeof name !== "string" ||
         expense.name.toLocaleLowerCase().includes(name.toLowerCase());
-      return /*startDateMatch && endDateMatch &&*/ nameMatch && expense;
+      return startDateMatch && endDateMatch && nameMatch && expense;
     })
     .sort(
       (a, b): number => {

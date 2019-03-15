@@ -3,50 +3,89 @@ import { connect } from "react-redux";
 import {
   setNameFilter,
   sortByDate,
-  sortByAmount
+  sortByAmount,
+  setStartDate,
+  setEndDate
 } from "../actions/filtersActions";
-import { FiltersReducerState, FiltersSortBy } from "../types/filtersTypes";
+import { FiltersSortBy } from "../types/filtersTypes";
+import { DateRangePicker, FocusedInputShape } from "react-dates";
+import { Moment } from "moment";
 
-const ExpenseListFilters = (props: any) => {
-  let nameFilter = React.createRef<HTMLInputElement>();
-  let sortByFilter = React.createRef<HTMLSelectElement>();
+class ExpenseListFilters extends React.Component<any, any> {
+  state = {
+    focusedInput: null
+  };
 
-  return (
-    <div>
-      <input
-        placeholder="filter by name"
-        ref={nameFilter}
-        value={props.filters.name}
-        onChange={() => {
-          props.dispatch(
-            setNameFilter(
-              (nameFilter.current && nameFilter.current.value) || ""
-            )
-          );
-        }}
-      />
-      <select
-        ref={sortByFilter}
-        value={props.filters.sortBy}
-        onChange={() => {
-          if (sortByFilter.current) {
-            const value: number = parseInt(sortByFilter.current.value);
-            if (value === FiltersSortBy.Date) {
-              return props.dispatch(sortByDate());
+  nameFilter = React.createRef<HTMLInputElement>();
+  sortByFilter = React.createRef<HTMLSelectElement>();
+
+  onDatesChange = ({
+    startDate,
+    endDate
+  }: {
+    startDate: Moment | null;
+    endDate: Moment | null;
+  }) => {
+    this.props.dispatch(setStartDate(startDate));
+    this.props.dispatch(setEndDate(endDate));
+  };
+
+  onFocusChange = (focusedInput: "startDate" | "endDate" | null) => {
+    this.setState({ focusedInput });
+  };
+
+  render() {
+    return (
+      <div>
+        <input
+          placeholder="filter by name"
+          ref={this.nameFilter}
+          value={this.props.filters.name}
+          onChange={() => {
+            this.props.dispatch(
+              setNameFilter(
+                (this.nameFilter.current && this.nameFilter.current.value) || ""
+              )
+            );
+          }}
+        />
+        <select
+          ref={this.sortByFilter}
+          value={this.props.filters.sortBy}
+          onChange={() => {
+            if (this.sortByFilter.current) {
+              const value: number = parseInt(this.sortByFilter.current.value);
+              if (value === FiltersSortBy.Date) {
+                return this.props.dispatch(sortByDate());
+              }
+              if (value === FiltersSortBy.Amount) {
+                return this.props.dispatch(sortByAmount());
+              }
             }
-            if (value === FiltersSortBy.Amount) {
-              return props.dispatch(sortByAmount());
-            }
-          }
-          //props.dispatch(sortByAmount());
-        }}
-      >
-        <option value={FiltersSortBy.Date}>Date</option>
-        <option value={FiltersSortBy.Amount}>Amount</option>
-      </select>
-    </div>
-  );
-};
+            //props.dispatch(sortByAmount());
+          }}
+        >
+          <option value={FiltersSortBy.Date}>Date</option>
+          <option value={FiltersSortBy.Amount}>Amount</option>
+        </select>
+        {this.props.filters.sortBy === FiltersSortBy.Date && (
+          <DateRangePicker
+            startDate={this.props.filters.startDate}
+            startDateId={"sortByDate-filter-startDate"}
+            endDate={this.props.filters.endDate}
+            endDateId={"sortByDate-filter-endDate"}
+            onDatesChange={this.onDatesChange}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={this.onFocusChange}
+            isOutsideRange={() => false}
+            numberOfMonths={1}
+            showClearDates={true}
+          />
+        )}
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state: any) => ({
   expenses: state.expenses,

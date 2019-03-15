@@ -1,3 +1,5 @@
+import { Moment } from "moment";
+
 enum FiltersSortBy {
   Date,
   Amount
@@ -6,8 +8,8 @@ enum FiltersSortBy {
 type FiltersReducerState = {
   name: string;
   sortBy: FiltersSortBy;
-  startDate: number | undefined;
-  endDate: number | undefined;
+  startDate: Moment | null;
+  endDate: Moment | null;
 };
 
 export { FiltersReducerState, FiltersSortBy };
