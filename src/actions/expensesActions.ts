@@ -46,9 +46,8 @@ type EditExpenseUpdate = {
 
 export const editExpense = (id: string, expense: Expense) => ({
   type: "EDIT_EXPENSE",
-  id,
   expense: {
-    id: id,
+    id,
     name: expense.name,
     description: expense.description,
     amount: expense.amount,
