@@ -12,7 +12,6 @@ export default (
     case "REMOVE_EXPENSE":
       return state.filter(({ id }) => id !== action.id);
     case "EDIT_EXPENSE":
-      console.log("EDIT EXPENSE", action);
       return state.map(e => (e.id === action.expense.id ? action.expense : e));
     default:
       return [...state];

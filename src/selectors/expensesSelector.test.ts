@@ -1,33 +1,7 @@
 import expensesSelector from "./expensesSelector";
-import { FiltersReducerState, FiltersSortBy } from "../types/filtersTypes";
+import { FiltersSortBy } from "../types/filtersTypes";
+import { expenses } from "../tests/fixtures/expensesStateFixture";
 import moment from "moment";
-
-const expenses = [
-  {
-    name: "Gas Bill",
-    description: "Gas bill for 2010",
-    amount: 100000,
-    createdAt: moment("2011-12-31")
-  },
-  {
-    name: "Water Bill",
-    description: "Water bill for 2012",
-    amount: 50000,
-    createdAt: moment("2013-12-31")
-  },
-  {
-    name: "New Sofa",
-    description: "New sofa for living room",
-    amount: 25000,
-    createdAt: moment("2015-06-05")
-  },
-  {
-    name: "Groceries",
-    description: "Some basics",
-    amount: 8000,
-    createdAt: moment("2015-07-10")
-  }
-];
 
 describe("Expense Selector", () => {
   // Filter: Empty, SortBy: Date
