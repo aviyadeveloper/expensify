@@ -3,11 +3,8 @@ import moment, { Moment } from "moment";
 import { SingleDatePicker } from "react-dates";
 import { Expense } from "../types/expensesTypes";
 
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-
 type ExpenseFormProps = {
-  onSubmit: (expense: Expense) => void;
+  onSubmit?: (expense: Expense) => void;
   name?: string;
   description?: string;
   amount?: number;
@@ -82,12 +79,15 @@ export class ExpenseForm extends React.Component<
       this.setState(() => ({ error: "Name and amount are required" }));
     } else {
       this.setState(() => ({ error: "" }));
-      this.props.onSubmit({
-        name: this.state.name,
-        amount: parseFloat(this.state.amount) * 100,
-        description: this.state.description,
-        createdAt: this.state.createdAt
-      });
+      {
+        this.props.onSubmit &&
+          this.props.onSubmit({
+            name: this.state.name,
+            amount: parseFloat(this.state.amount) * 100,
+            description: this.state.description,
+            createdAt: this.state.createdAt
+          });
+      }
     }
   };
 

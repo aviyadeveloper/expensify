@@ -6,8 +6,11 @@ import configureStore from "./store/configureStore";
 
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
+
 import { addExpense } from "./actions/expensesActions";
-import { setNameFilter, sortByAmount } from "./actions/filtersActions";
+import { sortByAmount } from "./actions/filtersActions";
 import moment = require("moment");
 
 const store = configureStore();

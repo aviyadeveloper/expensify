@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header component 1`] = `
+<header
+  className="navbar"
+>
+  <h1
+    className="navbar__app-title"
+  >
+    Expensify
+  </h1>
+  <div
+    className="navbar__links-container"
+  >
+    <NavLink
+      activeClassName="active-link"
+      className="navbar__links-container__link"
+      exact={true}
+      to="/"
+    >
+      Dashboard
+    </NavLink>
+    <NavLink
+      activeClassName="active-link"
+      className="navbar__links-container__link"
+      to="/add"
+    >
+      Add Expense
+    </NavLink>
+    <NavLink
+      activeClassName="active-link"
+      className="navbar__links-container__link"
+      to="/help"
+    >
+      Help
+    </NavLink>
+  </div>
+</header>
+`;

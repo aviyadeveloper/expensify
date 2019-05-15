@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should generate an expense list item 1`] = `
+<div>
+  <Link
+    to="/edit/1000"
+  >
+    <h5>
+      Gas Bill
+    </h5>
+  </Link>
+  <p>
+    Gas bill for 2010
+  </p>
+  <p>
+    <span>
+      100000
+    </span>
+     / 
+    <span>
+      1325282400000
+    </span>
+  </p>
+</div>
+`;

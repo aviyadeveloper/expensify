@@ -11,14 +11,15 @@ type ExpenseListStateProps = {
   filters: FiltersReducerState;
 };
 
-const ExpenseList = (props: ExpenseListStateProps) => (
+export const ExpenseList = (props: ExpenseListStateProps) => (
   <div>
-    <h1>Expense List:</h1>
     <ExpenseListFilters />
     <div>
-      {props.expenses.map(e => (
-        <ExpenseListItem key={e.id} {...e} />
-      ))}
+      {props.expenses.length < 1 ? (
+        <p>No expenses found.</p>
+      ) : (
+        props.expenses.map(e => <ExpenseListItem key={e.id} {...e} />)
+      )}
     </div>
   </div>
 );
