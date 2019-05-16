@@ -1,6 +1,6 @@
 import filtersReducer from '../../reducers/filtersReducer';
 import { FiltersReducerState, FiltersSortBy } from '../../types/filtersTypes';
-import moment = require('moment');
+import moment from 'moment';
 
 describe('Reducer Filter', () => {
   test('Should init a default filter reducer', () => {

@@ -1,7 +1,7 @@
-import uuidv1 from "uuid/v1";
-import { Moment } from "moment";
-import moment = require("moment");
-import { Expense } from "../types/expensesTypes";
+import uuidv1 from 'uuid/v1';
+import { Moment } from 'moment';
+import moment from 'moment';
+import { Expense } from '../types/expensesTypes';
 
 // ADD_EXPENSE
 type AddExpenseProps = {
@@ -12,12 +12,12 @@ type AddExpenseProps = {
 };
 
 export const addExpense = ({
-  name = "",
-  description = "",
+  name = '',
+  description = '',
   amount = 0,
   createdAt = moment()
 }: AddExpenseProps) => ({
-  type: "ADD_EXPENSE",
+  type: 'ADD_EXPENSE',
   expense: {
     id: uuidv1(),
     name,
@@ -33,7 +33,7 @@ type removeExpenseProps = {
 };
 
 export const removeExpense = ({ id }: removeExpenseProps = {}) => ({
-  type: "REMOVE_EXPENSE",
+  type: 'REMOVE_EXPENSE',
   id
 });
 
@@ -45,7 +45,7 @@ type EditExpenseUpdate = {
 };
 
 export const editExpense = (id: string, expense: Expense) => ({
-  type: "EDIT_EXPENSE",
+  type: 'EDIT_EXPENSE',
   expense: {
     id,
     name: expense.name,

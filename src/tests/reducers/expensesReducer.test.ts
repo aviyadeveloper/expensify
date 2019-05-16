@@ -1,5 +1,5 @@
 import expensesReducer from '../../reducers/expensesReducer';
-import moment = require('moment');
+import moment from 'moment';
 import { Expense } from '../../types/expensesTypes';
 import { expenses } from '../fixtures/expensesStateFixture';
 

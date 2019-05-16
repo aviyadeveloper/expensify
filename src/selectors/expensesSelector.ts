@@ -1,6 +1,6 @@
-import { Expense } from "../types/expensesTypes";
-import { FiltersReducerState, FiltersSortBy } from "../types/filtersTypes";
-import moment = require("moment");
+import { Expense } from '../types/expensesTypes';
+import { FiltersReducerState, FiltersSortBy } from '../types/filtersTypes';
+import moment from 'moment';
 
 export default (
   expenses: Expense[],
@@ -17,7 +17,7 @@ export default (
         : true;
 
       const nameMatch =
-        typeof name !== "string" ||
+        typeof name !== 'string' ||
         expense.name.toLocaleLowerCase().includes(name.toLowerCase());
       return startDateMatch && endDateMatch && nameMatch && expense;
     })

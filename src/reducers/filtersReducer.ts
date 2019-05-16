@@ -1,5 +1,5 @@
 import { FiltersReducerState, FiltersSortBy } from '../types/filtersTypes';
-import moment = require('moment');
+import moment from 'moment';
 
 export const filtersReducerDefaultState: FiltersReducerState = {
   name: '',
