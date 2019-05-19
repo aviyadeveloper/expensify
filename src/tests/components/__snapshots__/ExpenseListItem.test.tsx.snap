@@ -3,6 +3,7 @@
 exports[`should generate an expense list item 1`] = `
 <div>
   <Link
+    replace={false}
     to="/edit/1000"
   >
     <h5>

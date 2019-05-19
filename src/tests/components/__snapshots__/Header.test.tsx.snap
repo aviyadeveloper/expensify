@@ -14,6 +14,7 @@ exports[`should render Header component 1`] = `
   >
     <NavLink
       activeClassName="active-link"
+      aria-current="page"
       className="navbar__links-container__link"
       exact={true}
       to="/"
@@ -22,6 +23,7 @@ exports[`should render Header component 1`] = `
     </NavLink>
     <NavLink
       activeClassName="active-link"
+      aria-current="page"
       className="navbar__links-container__link"
       to="/add"
     >
@@ -29,6 +31,7 @@ exports[`should render Header component 1`] = `
     </NavLink>
     <NavLink
       activeClassName="active-link"
+      aria-current="page"
       className="navbar__links-container__link"
       to="/help"
     >
