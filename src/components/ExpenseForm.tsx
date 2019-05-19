@@ -54,11 +54,7 @@ export class ExpenseForm extends React.Component<
   };
 
   onDateChange = (createdAt: Moment | null) => {
-    console.log('got date change');
-    console.log('createdAt:', createdAt);
-    console.log('state 1:', this.state);
     !isNull(createdAt) && this.setState({ createdAt });
-    console.log('state 2:', this.state);
   };
 
   onCalendarFocused = ({ focused }: { focused: boolean | null }) => {
@@ -94,6 +90,7 @@ export class ExpenseForm extends React.Component<
       <div>
         <form onSubmit={this.onSubmit}>
           <input
+            id="expense-form-name"
             type="text"
             placeholder="name"
             autoFocus
@@ -101,6 +98,7 @@ export class ExpenseForm extends React.Component<
             onChange={this.onNameChange}
           />
           <input
+            id="expense-form-amount"
             type="text"
             placeholder="amount"
             value={this.state.amount}
@@ -116,6 +114,7 @@ export class ExpenseForm extends React.Component<
             isOutsideRange={() => false}
           />
           <textarea
+            id="expense-form-description"
             value={this.state.description}
             onChange={this.onDescriptionChange}
             placeholder="description"
