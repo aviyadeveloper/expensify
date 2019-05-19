@@ -1,24 +1,29 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/app.tsx",
+  mode: 'development',
+  entry: './src/app.tsx',
   output: {
-    path: path.join(__dirname, "public"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, use: "ts-loader" },
-      { test: /\.s?css$/, use: ["style-loader", "css-loader", "sass-loader"] }
+      {
+        test: /\.tsx?$/,
+        use: [
+          { loader: 'ts-loader', options: { onlyCompileBundledFiles: true } }
+        ]
+      },
+      { test: /\.s?css$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
     ]
   },
   resolve: {
-    extensions: [".js", ".json", ".ts", ".tsx"]
+    extensions: ['.js', '.json', '.ts', '.tsx']
   },
-  devtool: "cheap-module-eval-source-map",
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: path.join(__dirname, "public"),
+    contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true
   }
 };
