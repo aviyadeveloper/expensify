@@ -1,7 +1,8 @@
-import React from "react";
-import moment, { Moment } from "moment";
-import { SingleDatePicker } from "react-dates";
-import { Expense } from "../types/expensesTypes";
+import React from 'react';
+import moment, { Moment } from 'moment';
+import { SingleDatePicker } from 'react-dates';
+import { Expense } from '../types/expensesTypes';
+import { isNull } from 'util';
 
 type ExpenseFormProps = {
   onSubmit?: (expense: Expense) => void;
@@ -29,56 +30,53 @@ export class ExpenseForm extends React.Component<
   ExpenseFormState
 > {
   state: ExpenseFormState = {
-    name: this.props.name || "",
-    description: this.props.description || "",
-    amount: (this.props.amount && (this.props.amount / 100).toFixed(2)) || "",
+    name: this.props.name || '',
+    description: this.props.description || '',
+    amount: (this.props.amount && (this.props.amount / 100).toFixed(2)) || '',
     createdAt:
       (this.props.createdAt && moment(this.props.createdAt)) || moment(),
     calendarFocused: false,
-    error: "",
+    error: '',
     editMode: this.props.editMode
   };
-  nameRef = React.createRef<HTMLInputElement>();
-  descriptionRef = React.createRef<HTMLTextAreaElement>();
-  amountRef = React.createRef<HTMLInputElement>();
-  formRef = React.createRef<HTMLFormElement>();
 
-  onNameChange = () => {
-    this.setState(() => ({
-      name: this.nameRef.current && this.nameRef.current.value
-    }));
+  onNameChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const name = e.currentTarget && e.currentTarget.value;
+    this.setState({ name });
   };
 
-  onAmountChange = () => {
-    let amount = (this.amountRef.current && this.amountRef.current.value) || "";
+  onAmountChange = (e: React.FormEvent<HTMLInputElement>) => {
+    let amount = e.currentTarget && e.currentTarget.value;
 
     // Allow only cent based currency fit number format.
     (amount.match(/^[1-9]\d*(\.\d{0,2})?$/) || !amount) &&
-      this.setState(() => ({ amount }));
+      this.setState({ amount });
   };
 
   onDateChange = (createdAt: Moment | null) => {
-    createdAt && this.setState(() => ({ createdAt }));
+    console.log('got date change');
+    console.log('createdAt:', createdAt);
+    console.log('state 1:', this.state);
+    !isNull(createdAt) && this.setState({ createdAt });
+    console.log('state 2:', this.state);
   };
 
   onCalendarFocused = ({ focused }: { focused: boolean | null }) => {
     this.setState(() => ({ calendarFocused: focused }));
   };
 
-  onDescriptionChange = () => {
-    this.setState(() => ({
-      description:
-        (this.descriptionRef.current && this.descriptionRef.current.value) || ""
-    }));
+  onDescriptionChange = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    let description = e.currentTarget && e.currentTarget.value;
+    this.setState({ description });
   };
 
   onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!this.state.amount || !this.state.name) {
-      this.setState(() => ({ error: "Name and amount are required" }));
+      this.setState(() => ({ error: 'Name and amount are required' }));
     } else {
-      this.setState(() => ({ error: "" }));
+      this.setState(() => ({ error: '' }));
       {
         this.props.onSubmit &&
           this.props.onSubmit({
@@ -94,11 +92,10 @@ export class ExpenseForm extends React.Component<
   render() {
     return (
       <div>
-        <form ref={this.formRef} onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
             placeholder="name"
-            ref={this.nameRef}
             autoFocus
             value={this.state.name}
             onChange={this.onNameChange}
@@ -106,7 +103,6 @@ export class ExpenseForm extends React.Component<
           <input
             type="text"
             placeholder="amount"
-            ref={this.amountRef}
             value={this.state.amount}
             onChange={this.onAmountChange}
           />
@@ -120,13 +116,12 @@ export class ExpenseForm extends React.Component<
             isOutsideRange={() => false}
           />
           <textarea
-            ref={this.descriptionRef}
             value={this.state.description}
             onChange={this.onDescriptionChange}
             placeholder="description"
           />
           {this.state.error && <p>{this.state.error}</p>}
-          <button>{this.props.editMode ? "Edit" : "Add"}</button>
+          <button>{this.props.editMode ? 'Edit' : 'Add'}</button>
         </form>
       </div>
     );
