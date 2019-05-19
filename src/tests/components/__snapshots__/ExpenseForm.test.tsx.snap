@@ -7,12 +7,14 @@ exports[`should render ExpenseForm correctly 1`] = `
   >
     <input
       autoFocus={true}
+      id="expense-form-name"
       onChange={[Function]}
       placeholder="name"
       type="text"
       value=""
     />
     <input
+      id="expense-form-amount"
       onChange={[Function]}
       placeholder="amount"
       type="text"
@@ -108,6 +110,7 @@ exports[`should render ExpenseForm correctly 1`] = `
       withPortal={false}
     />
     <textarea
+      id="expense-form-description"
       onChange={[Function]}
       placeholder="description"
       value=""
@@ -126,12 +129,14 @@ exports[`should render ExpenseForm with expense data 1`] = `
   >
     <input
       autoFocus={true}
+      id="expense-form-name"
       onChange={[Function]}
       placeholder="name"
       type="text"
       value="Gas Bill"
     />
     <input
+      id="expense-form-amount"
       onChange={[Function]}
       placeholder="amount"
       type="text"
@@ -227,6 +232,7 @@ exports[`should render ExpenseForm with expense data 1`] = `
       withPortal={false}
     />
     <textarea
+      id="expense-form-description"
       onChange={[Function]}
       placeholder="description"
       value="Gas bill for 2010"
