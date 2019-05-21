@@ -1,24 +1,36 @@
-import React, { Dispatch } from "react";
-import { connect, DispatchProp } from "react-redux";
-import { ExpenseForm } from "./ExpenseForm";
-import { Expense } from "../types/expensesTypes";
-import { addExpense } from "../actions/expensesActions";
-import { AnyAction } from "redux";
+import React, { Dispatch } from 'react';
+import { connect } from 'react-redux';
+import { ExpenseForm } from './ExpenseForm';
+import { Expense } from '../types/expensesTypes';
+import { addExpense } from '../actions/expensesActions';
+import { AnyAction } from 'redux';
+import { History } from 'history';
 
-const AddExpensePage: React.FC<DispatchProp> = (props: any) => (
-  <div>
-    <h2>Expensify add expense page</h2>
-    <ExpenseForm
-      onSubmit={(expense: Expense): void => {
-        props.dispatch(addExpense(expense));
-        props.history.push("/");
-      }}
-    />
-  </div>
-);
+type AddExpensePageProps = {
+  onSubmit: (expense: Expense) => void;
+  history: History;
+};
+
+export class AddExpensePage extends React.Component<AddExpensePageProps> {
+  onSubmit = (expense: Expense): void => {
+    this.props.onSubmit(expense);
+    this.props.history.push('/');
+  };
+  render() {
+    return (
+      <div>
+        <h2>Expensify add expense page</h2>
+        <ExpenseForm onSubmit={this.onSubmit} />
+      </div>
+    );
+  }
+}
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  dispatch
+  onSubmit: (expense: Expense) => dispatch(addExpense(expense))
 });
 
-export default connect(mapDispatchToProps)(AddExpensePage);
+export default connect<any>(
+  undefined,
+  mapDispatchToProps
+)(AddExpensePage);
