@@ -53,7 +53,7 @@ export class ExpenseForm extends React.Component<
       this.setState({ amount });
   };
 
-  onDateChange = (createdAt: Moment | null) => {
+  onDateChange = (createdAt: Moment | null): void => {
     !isNull(createdAt) && this.setState({ createdAt });
   };
 
