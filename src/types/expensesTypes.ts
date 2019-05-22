@@ -1,5 +1,4 @@
-import { v1 } from "uuid/interfaces";
-import { Moment } from "moment";
+import { Moment } from 'moment';
 
 type Expense = {
   id?: string;
@@ -10,4 +9,8 @@ type Expense = {
   [propName: string]: any;
 };
 
-export { Expense };
+type expensesReducerState = {
+  expenses: Expense[];
+};
+
+export { Expense, expensesReducerState };

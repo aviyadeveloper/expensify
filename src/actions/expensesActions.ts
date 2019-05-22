@@ -29,10 +29,10 @@ export const addExpense = ({
 
 // REMOVE_EXPENSE
 type removeExpenseProps = {
-  id?: string;
+  id: string;
 };
 
-export const removeExpense = ({ id }: removeExpenseProps = {}) => ({
+export const removeExpense = ({ id }: removeExpenseProps) => ({
   type: 'REMOVE_EXPENSE',
   id
 });
