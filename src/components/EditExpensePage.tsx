@@ -9,10 +9,10 @@ import { match } from 'react-router';
 import { storeStateType } from '../types/storeTypes';
 import moment = require('moment');
 
-type EditExpensePageProps = {
+export type EditExpensePageProps = {
   editExpense: (id: string, expense: Expense) => void;
   removeExpense: (id: string) => void;
-  match: match<{ id: string }>;
+  match: match<{ id: string | undefined }>;
   expense: Expense | undefined;
   history: History;
 };
@@ -36,7 +36,9 @@ export class EditExpensePage extends React.Component<EditExpensePageProps> {
     return (
       <div>
         <h4>Editing expense</h4>
-        <button onClick={this.onRemoveExpense}>Delete</button>
+        <button id="remove-expense-button" onClick={this.onRemoveExpense}>
+          Delete
+        </button>
         <ExpenseForm
           onSubmit={this.onEditExpense}
           editMode={true}
