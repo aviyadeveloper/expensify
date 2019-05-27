@@ -12,7 +12,7 @@ import { DateRangePicker } from 'react-dates';
 import { Moment } from 'moment';
 import { Dispatch } from 'redux';
 
-class ExpenseListFilters extends React.Component<any, any> {
+export class ExpenseListFilters extends React.Component<any, any> {
   state = {
     focusedInput: null
   };
@@ -52,11 +52,13 @@ class ExpenseListFilters extends React.Component<any, any> {
     return (
       <div>
         <input
+          id="expense-filter-name"
           placeholder="filter by name"
-          value={this.props.filter}
+          value={this.props.filters.name}
           onChange={this.onNameChange}
         />
         <select
+          id="expense-filter-sortBy"
           value={this.props.filters.sortBy}
           onChange={this.onFilterTypeChange}
         >
@@ -81,7 +83,6 @@ class ExpenseListFilters extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => ({
-  expenses: state.expenses,
   filters: state.filters
 });
 

@@ -17,9 +17,10 @@ exports[`should generate an expense list item 1`] = `
     <span>
       100000
     </span>
-     / 
+     /
+     
     <span>
-      1325282400000
+      31-12-2011
     </span>
   </p>
 </div>
