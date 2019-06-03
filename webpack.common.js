@@ -2,9 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.tsx',
+  entry: './client/src/app.tsx',
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'client/dist/public'),
     filename: 'bundle.[hash].js'
   },
   module: {
@@ -23,8 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      title: 'testing expensify',
-      template: './src/index_template.html'
+      template: './client/src/index_template.html'
     })
   ]
 };
