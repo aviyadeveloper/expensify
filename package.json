@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack --config webpack.dev.js",
+    "build:dev": "tsc && webpack --config webpack.dev.js",
     "build:prod": "tsc && webpack --config webpack.prod.js",
     "server:dev": "webpack-dev-server --host 0.0.0.0 --config webpack.dev.js",
     "server:build": "tsc",
