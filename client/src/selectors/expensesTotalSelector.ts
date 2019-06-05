@@ -6,5 +6,5 @@ export default (expenses: Expense[]) => {
   let total = amounts.reduce((a, b) => {
     return isNumber(a) && isNumber(b) ? a + b : undefined;
   }, 0);
-  return total;
+  return total || 0;
 };

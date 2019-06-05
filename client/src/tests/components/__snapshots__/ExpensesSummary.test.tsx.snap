@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render component properly with 1 expense 1`] = `
+<div>
+  <p>
+    Viewing 
+    1
+     expense
+     totalling in
+     
+    $1,000.00
+  </p>
+</div>
+`;
+
+exports[`Should render component properly with multiple expenses 1`] = `
+<div>
+  <p>
+    Viewing 
+    4
+     expense
+    s
+     totalling in
+     
+    $1,830.00
+  </p>
+</div>
+`;
+
+exports[`Should render empty component (no expenses visible) 1`] = `
+<div>
+  <p>
+    Viewing 
+    0
+     expense
+    s
+     totalling in
+     
+    $0.00
+  </p>
+</div>
+`;

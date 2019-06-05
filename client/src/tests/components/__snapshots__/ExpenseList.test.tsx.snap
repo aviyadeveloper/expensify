@@ -3,6 +3,40 @@
 exports[`Should generate expense list 1`] = `
 <div>
   <Connect(ExpenseListFilters) />
+  <Component
+    expenses={
+      Array [
+        Object {
+          "amount": 100000,
+          "createdAt": "2011-12-30T22:00:00.000Z",
+          "description": "Gas bill for 2010",
+          "id": "1000",
+          "name": "Gas Bill",
+        },
+        Object {
+          "amount": 50000,
+          "createdAt": "2013-12-30T22:00:00.000Z",
+          "description": "Water bill for 2012",
+          "id": "1001",
+          "name": "Water Bill",
+        },
+        Object {
+          "amount": 25000,
+          "createdAt": "2015-06-04T21:00:00.000Z",
+          "description": "New sofa for living room",
+          "id": "1002",
+          "name": "New Sofa",
+        },
+        Object {
+          "amount": 8000,
+          "createdAt": "2015-07-09T21:00:00.000Z",
+          "description": "Some basics",
+          "id": "1003",
+          "name": "Groceries",
+        },
+      ]
+    }
+  />
   <div>
     <Connect(Component)
       amount={100000}
@@ -43,6 +77,9 @@ exports[`Should generate expense list 1`] = `
 exports[`Should give expense not found message if expenses empty 1`] = `
 <div>
   <Connect(ExpenseListFilters) />
+  <Component
+    expenses={Array []}
+  />
   <div>
     <p>
       No expenses found.
