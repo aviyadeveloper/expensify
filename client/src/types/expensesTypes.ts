@@ -1,12 +1,9 @@
-import { Moment } from 'moment';
-
 type Expense = {
   id?: string;
-  name: string;
-  description: string;
-  amount: number | undefined;
-  createdAt: Moment;
-  [propName: string]: any;
+  name?: string;
+  description?: string;
+  amount?: number | undefined;
+  createdAt?: string;
 };
 
 type expensesReducerState = {

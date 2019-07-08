@@ -7,27 +7,27 @@ export const expenses: Expense[] = [
     name: 'Gas Bill',
     description: 'Gas bill for 2010',
     amount: 100000,
-    createdAt: moment('2011-12-31')
+    createdAt: moment('2011-12-31').format()
   },
   {
     id: '1001',
     name: 'Water Bill',
     description: 'Water bill for 2012',
     amount: 50000,
-    createdAt: moment('2013-12-31')
+    createdAt: moment('2013-12-31').format()
   },
   {
     id: '1002',
     name: 'New Sofa',
     description: 'New sofa for living room',
     amount: 25000,
-    createdAt: moment('2015-06-05')
+    createdAt: moment('2015-06-05').format()
   },
   {
     id: '1003',
     name: 'Groceries',
     description: 'Some basics',
     amount: 8000,
-    createdAt: moment('2015-07-10')
+    createdAt: moment('2015-07-10').format()
   }
 ];

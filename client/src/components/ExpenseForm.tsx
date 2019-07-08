@@ -9,7 +9,7 @@ type ExpenseFormProps = {
   name?: string;
   description?: string;
   amount?: number;
-  createdAt?: Moment;
+  createdAt?: string;
   calendarFocused?: boolean | null;
   error?: string;
   editMode?: boolean;
@@ -19,7 +19,7 @@ interface ExpenseFormState {
   name: string;
   description: string;
   amount: string;
-  createdAt: Moment;
+  createdAt: string;
   calendarFocused: boolean | null;
   error: string;
   editMode?: boolean;
@@ -34,7 +34,8 @@ export class ExpenseForm extends React.Component<
     description: this.props.description || '',
     amount: (this.props.amount && (this.props.amount / 100).toFixed(2)) || '',
     createdAt:
-      (this.props.createdAt && moment(this.props.createdAt)) || moment(),
+      (this.props.createdAt && moment(this.props.createdAt).format()) ||
+      moment().format(),
     calendarFocused: false,
     error: '',
     editMode: this.props.editMode
@@ -53,8 +54,8 @@ export class ExpenseForm extends React.Component<
       this.setState({ amount });
   };
 
-  onDateChange = (createdAt: Moment | null): void => {
-    !isNull(createdAt) && this.setState({ createdAt });
+  onDateChange = (newDate: Moment | null): void => {
+    !isNull(newDate) && this.setState({ createdAt: newDate.format() });
   };
 
   onCalendarFocused = ({ focused }: { focused: boolean | null }) => {
@@ -106,7 +107,7 @@ export class ExpenseForm extends React.Component<
           />
           <SingleDatePicker
             id="expense-form-date"
-            date={this.state.createdAt}
+            date={moment()}
             onDateChange={this.onDateChange}
             focused={!!this.state.calendarFocused}
             onFocusChange={this.onCalendarFocused}

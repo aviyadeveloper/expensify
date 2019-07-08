@@ -6,16 +6,16 @@ import { ExpenseForm } from '../../components/ExpenseForm';
 import { expenses } from '../fixtures/expensesStateFixture';
 import { Expense } from '../../types/expensesTypes';
 
-let addExpenseSpy: (expense: Expense) => void,
+let runAddExpenseSpy: (expense: Expense) => void,
   historySpy: History,
   wrapper: ShallowWrapper;
 
 beforeEach(() => {
-  addExpenseSpy = jest.fn();
+  runAddExpenseSpy = jest.fn();
   historySpy = createBrowserHistory();
   historySpy.push = jest.fn();
   wrapper = shallow(
-    <AddExpensePage addExpense={addExpenseSpy} history={historySpy} />
+    <AddExpensePage runAddExpense={runAddExpenseSpy} history={historySpy} />
   );
 });
 
@@ -26,6 +26,6 @@ test('should render AddExpensePage properly', () => {
 test('should handle onSubmit', () => {
   const onSubmit = wrapper.find(ExpenseForm).prop('onSubmit');
   onSubmit && onSubmit(expenses[0]);
-  expect(addExpenseSpy).toHaveBeenLastCalledWith(expenses[0]);
+  expect(runAddExpenseSpy).toHaveBeenLastCalledWith(expenses[0]);
   expect(historySpy.push).toHaveBeenLastCalledWith('/');
 });

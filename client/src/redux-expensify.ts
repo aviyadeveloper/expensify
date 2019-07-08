@@ -1,7 +1,7 @@
-import { createStore, combineReducers } from "redux";
-import uuidv1 from "uuid/v1";
-import validator from "validator";
-import { v1 } from "uuid/interfaces";
+import { createStore, combineReducers } from 'redux';
+import uuidv1 from 'uuid/v1';
+import validator from 'validator';
+import { v1 } from 'uuid/interfaces';
 
 // Reducers:
 
@@ -20,11 +20,11 @@ const expensesReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case "ADD_EXPENSE":
+    case 'ADD_EXPENSE':
       return [...state, action.expense];
-    case "REMOVE_EXPENSE":
+    case 'REMOVE_EXPENSE':
       return state.filter(({ id }) => id !== action.id);
-    case "EDIT_EXPENSE":
+    case 'EDIT_EXPENSE':
       return state.map(e =>
         e.id === action.id ? { ...e, ...action.update } : e
       );
@@ -46,7 +46,7 @@ type FiltersReducerState = {
 };
 
 const filtersReducerDefaultState: FiltersReducerState = {
-  name: "",
+  name: '',
   sortBy: FiltersSortBy.Date,
   startDate: undefined,
   endDate: undefined
@@ -57,15 +57,15 @@ const filtersReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case "SET_NAME_FILTER":
+    case 'SET_NAME_FILTER':
       return { ...state, name: action.name };
-    case "SORT_BY_DATE":
+    case 'SORT_BY_DATE':
       return { ...state, sortBy: FiltersSortBy.Date };
-    case "SORT_BY_AMOUNT":
+    case 'SORT_BY_AMOUNT':
       return { ...state, sortBy: FiltersSortBy.Amount };
-    case "SET_START_DATE":
+    case 'SET_START_DATE':
       return { ...state, startDate: action.date };
-    case "SET_END_DATE":
+    case 'SET_END_DATE':
       return { ...state, endDate: action.date };
     default:
       return state;
@@ -84,12 +84,12 @@ type AddExpenseProps = {
 };
 
 const addExpense = ({
-  name = "",
-  description = "",
+  name = '',
+  description = '',
   amount = 0,
   createdAt = 0
 }: AddExpenseProps) => ({
-  type: "ADD_EXPENSE",
+  type: 'ADD_EXPENSE',
   expense: {
     id: uuidv1(),
     name,
@@ -106,7 +106,7 @@ type removeExpenseProps = {
 };
 
 const removeExpense = ({ id }: removeExpenseProps = {}) => ({
-  type: "REMOVE_EXPENSE",
+  type: 'REMOVE_EXPENSE',
   id
 });
 
@@ -119,40 +119,40 @@ type EditExpenseUpdate = {
 };
 
 const editExpense = (id: string, update: EditExpenseUpdate) => ({
-  type: "EDIT_EXPENSE",
+  type: 'EDIT_EXPENSE',
   id,
   update
 });
 
 // SET_NAME_FILTER
 
-const setNameFilter = (name: string = "") => ({
-  type: "SET_NAME_FILTER",
+const setNameFilter = (name: string = '') => ({
+  type: 'SET_NAME_FILTER',
   name
 });
 
 // SORT_BY_DATE
 
 const sortByDate = () => ({
-  type: "SORT_BY_DATE"
+  type: 'SORT_BY_DATE'
 });
 
 // SORT_BY_AMOUNT
 
 const sortByAmount = () => ({
-  type: "SORT_BY_AMOUNT"
+  type: 'SORT_BY_AMOUNT'
 });
 
 // SET_START_DATE
 
 const setStartDate = (date?: number) => ({
-  type: "SET_START_DATE",
+  type: 'SET_START_DATE',
   date
 });
 
 // SET_END_DATE
 const setEndDate = (date?: number) => ({
-  type: "SET_END_DATE",
+  type: 'SET_END_DATE',
   date
 });
 
@@ -165,11 +165,11 @@ const getVisibileExpenses = (
   return expenses
     .filter(expense => {
       const startDateMatch =
-        typeof startDate !== "number" || expense.createdAt >= startDate;
+        typeof startDate !== 'number' || expense.createdAt >= startDate;
       const endDateMatch =
-        typeof endDate !== "number" || expense.createdAt <= endDate;
+        typeof endDate !== 'number' || expense.createdAt <= endDate;
       const nameMatch =
-        typeof name !== "string" ||
+        typeof name !== 'string' ||
         expense.name.toLocaleLowerCase().includes(name.toLowerCase());
       return startDateMatch && endDateMatch && nameMatch && expense;
     })
@@ -192,18 +192,18 @@ const store = createStore(
 
 store.subscribe(() => {
   const state = store.getState();
-  console.log("full state:", store.getState());
-  console.log("filtered:", getVisibileExpenses(state.expenses, state.filters));
+  console.log('full state:', store.getState());
+  console.log('filtered:', getVisibileExpenses(state.expenses, state.filters));
 });
 
 const expense1 = store.dispatch(
-  addExpense({ name: "Foobar", createdAt: 1000 })
+  addExpense({ name: 'Foobar', createdAt: 1000 })
 );
 
 const expense2 = store.dispatch(
   addExpense({
-    name: "Boop",
-    description: "something nice",
+    name: 'Boop',
+    description: 'something nice',
     amount: 540,
     createdAt: 200
   })
@@ -211,8 +211,8 @@ const expense2 = store.dispatch(
 
 const expense3 = store.dispatch(
   addExpense({
-    name: "Bazz",
-    description: "something pretty",
+    name: 'Bazz',
+    description: 'something pretty',
     amount: 240,
     createdAt: 800
   })
@@ -225,9 +225,9 @@ const expense3 = store.dispatch(
 // store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());
 
-store.dispatch(setNameFilter("foo"));
-store.dispatch(setNameFilter("oo"));
-store.dispatch(setNameFilter("opo"));
+store.dispatch(setNameFilter('foo'));
+store.dispatch(setNameFilter('oo'));
+store.dispatch(setNameFilter('opo'));
 store.dispatch(setNameFilter());
 store.dispatch(sortByAmount());
 store.dispatch(sortByDate());

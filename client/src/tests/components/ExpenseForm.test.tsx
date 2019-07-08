@@ -52,7 +52,7 @@ test('should change state createdAt if date picker changes', () => {
   const testDate = moment('2010-05-20');
   const datePicker = wrapper.find('#expense-form-date');
   (datePicker.prop('onDateChange') as Function)(testDate);
-  expect(wrapper.state('createdAt')).toBe(testDate);
+  expect(wrapper.state('createdAt')).toBe(testDate.format());
 });
 
 test('Should change state of calendar focus on date picker focus', () => {

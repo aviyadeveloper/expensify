@@ -8,28 +8,28 @@ exports[`Should generate expense list 1`] = `
       Array [
         Object {
           "amount": 100000,
-          "createdAt": "2011-12-30T22:00:00.000Z",
+          "createdAt": "2011-12-31T00:00:00+02:00",
           "description": "Gas bill for 2010",
           "id": "1000",
           "name": "Gas Bill",
         },
         Object {
           "amount": 50000,
-          "createdAt": "2013-12-30T22:00:00.000Z",
+          "createdAt": "2013-12-31T00:00:00+02:00",
           "description": "Water bill for 2012",
           "id": "1001",
           "name": "Water Bill",
         },
         Object {
           "amount": 25000,
-          "createdAt": "2015-06-04T21:00:00.000Z",
+          "createdAt": "2015-06-05T00:00:00+03:00",
           "description": "New sofa for living room",
           "id": "1002",
           "name": "New Sofa",
         },
         Object {
           "amount": 8000,
-          "createdAt": "2015-07-09T21:00:00.000Z",
+          "createdAt": "2015-07-10T00:00:00+03:00",
           "description": "Some basics",
           "id": "1003",
           "name": "Groceries",
@@ -40,7 +40,7 @@ exports[`Should generate expense list 1`] = `
   <div>
     <Connect(Component)
       amount={100000}
-      createdAt={"2011-12-30T22:00:00.000Z"}
+      createdAt="2011-12-31T00:00:00+02:00"
       description="Gas bill for 2010"
       id="1000"
       key="1000"
@@ -48,7 +48,7 @@ exports[`Should generate expense list 1`] = `
     />
     <Connect(Component)
       amount={50000}
-      createdAt={"2013-12-30T22:00:00.000Z"}
+      createdAt="2013-12-31T00:00:00+02:00"
       description="Water bill for 2012"
       id="1001"
       key="1001"
@@ -56,7 +56,7 @@ exports[`Should generate expense list 1`] = `
     />
     <Connect(Component)
       amount={25000}
-      createdAt={"2015-06-04T21:00:00.000Z"}
+      createdAt="2015-06-05T00:00:00+03:00"
       description="New sofa for living room"
       id="1002"
       key="1002"
@@ -64,7 +64,7 @@ exports[`Should generate expense list 1`] = `
     />
     <Connect(Component)
       amount={8000}
-      createdAt={"2015-07-09T21:00:00.000Z"}
+      createdAt="2015-07-10T00:00:00+03:00"
       description="Some basics"
       id="1003"
       key="1003"

@@ -13,7 +13,7 @@ exports[`should render EditExpensePage properly 1`] = `
   </button>
   <ExpenseForm
     amount={100000}
-    createdAt={"2011-12-30T22:00:00.000Z"}
+    createdAt="2011-12-31T00:00:00+02:00"
     description="Gas bill for 2010"
     editMode={true}
     id="1000"

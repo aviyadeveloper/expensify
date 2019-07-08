@@ -3,3 +3,4 @@ node_modules
 playground
 client/dist/
 server/dist/
+.env.*
