@@ -5,5 +5,7 @@ Enzyme.configure({
   adapter: new Adapter()
 });
 
-const dotenv = require('dotenv');
-dotenv.config({ path: './.env.test' });
+if (process.env.NODE_ENV === 'test') {
+  const dotenv = require('dotenv');
+  dotenv.config({ path: './.env.test' });
+}
