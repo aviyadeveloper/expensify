@@ -54,7 +54,7 @@ test('should invoke edit an expense with expense id and revised data', () => {
   };
   const onSubmit = wrapper.find(ExpenseForm).prop('onSubmit');
   onSubmit && onSubmit(revisedExpense);
-  expect(history.push).toHaveBeenLastCalledWith('/');
+  expect(history.push).toHaveBeenLastCalledWith('/dashboard');
   expect(runEditExpenseSpy).toHaveBeenLastCalledWith(
     revisedExpense.id,
     revisedExpense
@@ -63,6 +63,6 @@ test('should invoke edit an expense with expense id and revised data', () => {
 
 test('should invoke remove an expense with expense id', () => {
   wrapper.find('button#remove-expense-button').simulate('click');
-  expect(history.push).toHaveBeenLastCalledWith('/');
+  expect(history.push).toHaveBeenLastCalledWith('/dashboard');
   expect(runRemoveExpenseSpy).toHaveBeenLastCalledWith(expenses[0].id);
 });

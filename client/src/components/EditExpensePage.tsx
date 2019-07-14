@@ -19,14 +19,14 @@ export class EditExpensePage extends React.Component<EditExpensePageProps> {
   onEditExpense = (expense: Expense) => {
     if (this.props.expense && typeof this.props.expense.id === 'string') {
       this.props.runEditExpense(this.props.expense.id, expense);
-      this.props.history.push('/');
+      this.props.history.push('/dashboard');
     }
   };
 
   onRemoveExpense = () => {
     if (this.props.expense && typeof this.props.expense.id === 'string') {
       this.props.runRemoveExpense(this.props.expense.id);
-      this.props.history.push('/');
+      this.props.history.push('/dashboard');
     }
   };
 

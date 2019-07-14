@@ -17,7 +17,7 @@ exports[`should render Header component 1`] = `
       aria-current="page"
       className="navbar__links-container__link"
       exact={true}
-      to="/"
+      to="/dashboard"
     >
       Dashboard
     </NavLink>
@@ -37,6 +37,13 @@ exports[`should render Header component 1`] = `
     >
       Help
     </NavLink>
+    <button
+      className="navbar__links-container__link"
+      id="logout-button"
+      onClick={[MockFunction]}
+    >
+      Logout
+    </button>
   </div>
 </header>
 `;

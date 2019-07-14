@@ -19,8 +19,10 @@ import thunk from 'redux-thunk';
 let store: any;
 const middleware: any = [thunk];
 const mockStore: any = configureStore(middleware);
+const uid: string | undefined = process.env.FIREBASE_TEST_UID;
 
 beforeEach(done => {
+  store = mockStore({ auth: { uid } });
   type expensesData = {
     [id: string]: Expense;
   };
@@ -31,11 +33,9 @@ beforeEach(done => {
       : undefined;
   });
   database
-    .ref('expenses')
+    .ref(`/users/${uid}/expenses`)
     .set(expensesData)
     .then(done());
-
-  store = mockStore({});
 });
 
 import moment from 'moment';
@@ -52,7 +52,6 @@ describe('Expenses Actions', () => {
   });
 
   test('Should fetch expenses from database and set them in store', done => {
-    const store = mockStore({});
     store.dispatch(runSetExpenses()).then(() => {
       const actions = store.getActions();
       expect(actions[0]).toEqual({
@@ -73,7 +72,6 @@ describe('Expenses Actions', () => {
   });
 
   test('Should add expense to database and store', done => {
-    const store = mockStore({});
     const expenseData = {
       name: 'foo',
       amount: 10025,
@@ -92,7 +90,9 @@ describe('Expenses Actions', () => {
             ...expenseData
           }
         });
-        return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+        return database
+          .ref(`users/${uid}/expenses/${actions[0].expense.id}`)
+          .once('value');
       })
       .then((snapshot: Firebase.database.DataSnapshot) => {
         expect(snapshot.val()).toEqual(expenseData);
@@ -101,7 +101,6 @@ describe('Expenses Actions', () => {
   });
 
   test('Should add expense with defaults to database and store', done => {
-    const store = mockStore({});
     const expenseData = {
       name: 'foobar'
     };
@@ -122,7 +121,9 @@ describe('Expenses Actions', () => {
             ...expectedData
           }
         });
-        return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+        return database
+          .ref(`users/${uid}/expenses/${actions[0].expense.id}`)
+          .once('value');
       })
       .then((snapshot: Firebase.database.DataSnapshot) => {
         expect(snapshot.val()).toEqual(expectedData);
@@ -151,7 +152,6 @@ describe('Expenses Actions', () => {
   });
 
   test('Should edit expense in database and store', done => {
-    const store = mockStore({});
     const id: string = expenses[1].id || '';
     store
       .dispatch(
@@ -173,7 +173,7 @@ describe('Expenses Actions', () => {
         });
 
         // check that edited database
-        return database.ref(`expenses/${id}`).once('value');
+        return database.ref(`users/${uid}/expenses/${id}`).once('value');
       })
       .then((snapshot: Firebase.database.DataSnapshot) => {
         expect(snapshot.val()).toEqual({
@@ -191,11 +191,10 @@ describe('Expenses Actions', () => {
     const id = 'foobar';
     const removeObject = removeExpense({ id });
     expect(removeObject).toEqual({ expense: { id }, type: 'REMOVE_EXPENSE' });
-    return database.ref(`expenses/${id}`).once('value');
+    return database.ref(`users/${uid}/expenses/${id}`).once('value');
   });
 
   test('Should remove expense from database and store', done => {
-    const store = mockStore({});
     const id: string = expenses[2].id || '';
     store
       .dispatch(runRemoveExpense(id))
@@ -207,7 +206,7 @@ describe('Expenses Actions', () => {
           expense: { id }
         });
         // Check that removed from db
-        return database.ref(`expenses/${id}`).once('value');
+        return database.ref(`users/${uid}/expenses/${id}`).once('value');
       })
       .then((snapshot: Firebase.database.DataSnapshot) => {
         expect(snapshot.val()).toBeNull();

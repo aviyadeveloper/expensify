@@ -13,7 +13,7 @@ type AddExpensePageProps = {
 export class AddExpensePage extends React.Component<AddExpensePageProps> {
   runAddExpense = (expense: Expense): void => {
     this.props.runAddExpense(expense);
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
   render() {
     return (
