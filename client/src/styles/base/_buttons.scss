@@ -1,0 +1,16 @@
+.buttons__button {
+  background-color: $color-secondary-05;
+  border: $color-secondary-20 1px solid;
+  border-radius: $space-xxs;
+  color: $color-white;
+  font-size: $font-m;
+  flex-grow: 1;
+  margin: $space-m;
+  min-height: $space-l;
+  outline: none;
+}
+
+.buttons__button:hover {
+  background-color: $color-secondary-00;
+  cursor: pointer;
+}

@@ -1,0 +1,31 @@
+.layout__background {
+  align-items: center;
+  background: url('../assets/expenfisy-bg.jpg');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.layout__card {
+  background-color: fade_out($color-black, 0.075);
+  border-radius: $space-xxs;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.layout__card__title {
+  color: $color-primary-15;
+  font-size: $space-xxl;
+  line-height: 1;
+  margin: $space-xl $space-xl $space-s;
+}
+
+.layout__card__subtitle {
+  color: $color-primary-05;
+  font-size: $space-l;
+  line-height: 1.6;
+  margin: $space-xs $space-m;
+}

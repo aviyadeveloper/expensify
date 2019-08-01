@@ -14,6 +14,10 @@ module.exports = {
         use: [
           { loader: 'ts-loader', options: { onlyCompileBundledFiles: true } }
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader']
       }
     ]
   },
