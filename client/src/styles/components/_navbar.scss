@@ -1,34 +1,42 @@
 .navbar {
   align-items: center;
   background-color: $color-secondary-15;
-  display: flex;
-  justify-content: space-around;
   box-shadow: 0px 2px 4px -2px black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__title-link-container {
+  text-decoration: none;
 }
 
 .navbar__app-title {
   color: $color-primary-15;
-  font-family: Teko;
-  font-weight: 500;
-  font-size: $space-xxxl;
-  margin: $space-s;
-  text-shadow: 1px 1px $color-primary-00;
-  text-transform: uppercase;
+  font-weight: 800;
+  font-size: $space-xl;
+  margin: $space-s $space-xxxl;
 }
 
 .navbar__links-container {
-  flex-grow: 0.5;
+  align-items: center;
   display: flex;
   justify-content: space-around;
+  margin: $space-m;
 }
 
 .navbar__links-container__link {
   color: $color-secondary-00;
-  font-family: Teko;
-  font-weight: 400;
-  font-size: $space-l;
+  font-family: $font-primary;
+  font-weight: 500;
+  font-size: $space-m;
+  margin: 0 $space-m;
   outline: none;
   text-decoration: none;
+}
+
+.navbar__links-container__link:hover {
+  cursor: pointer;
+  color: $color-secondary-05;
 }
 
 .navbar__links-container__link.active-link {

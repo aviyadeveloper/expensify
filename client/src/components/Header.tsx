@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { runLogout } from '../actions/auth';
 
 interface IHeaderProps extends RouteComponentProps {
@@ -10,23 +10,10 @@ interface IHeaderProps extends RouteComponentProps {
 
 export const Header: React.SFC<IHeaderProps> = props => (
   <header className="navbar">
-    <h1 className="navbar__app-title">Expensify</h1>
+    <Link className="navbar__title-link-container" to="/dashboard">
+      <h1 className="navbar__app-title">Expensify</h1>
+    </Link>
     <div className="navbar__links-container">
-      <NavLink
-        activeClassName="active-link"
-        className="navbar__links-container__link"
-        to="/dashboard"
-        exact={true}
-      >
-        Dashboard
-      </NavLink>
-      <NavLink
-        activeClassName="active-link"
-        className="navbar__links-container__link"
-        to="/add"
-      >
-        Add Expense
-      </NavLink>
       <NavLink
         activeClassName="active-link"
         className="navbar__links-container__link"
@@ -36,7 +23,7 @@ export const Header: React.SFC<IHeaderProps> = props => (
       </NavLink>
       <button
         id="logout-button"
-        className="navbar__links-container__link"
+        className="navbar__links-container__link buttons__clear"
         onClick={props.runLogout}
       >
         Logout

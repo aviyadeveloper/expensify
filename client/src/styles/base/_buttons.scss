@@ -15,3 +15,14 @@
   background-color: $color-secondary-00;
   cursor: pointer;
 }
+
+.buttons__clear {
+  background-color: transparent;
+  border: none;
+  font-family: $font-primary;
+}
+
+.buttons__clear:hover {
+  color: $color-secondary-05;
+  cursor: pointer;
+}
