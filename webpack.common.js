@@ -27,7 +27,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './client/src/index_template.html'
+      template: './client/src/index_template.html',
+      favicon: './client/src/assets/expensify-favicon.png'
     })
   ]
 };
