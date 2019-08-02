@@ -1,0 +1,9 @@
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 10vw;
+  max-width: 80vw;
+  padding: 0 $space-xs;
+  width: 80vw;
+}

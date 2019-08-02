@@ -16,6 +16,26 @@
   cursor: pointer;
 }
 
+.buttons__regular {
+  background-color: $color-secondary-05;
+  border: $color-secondary-20 1px solid;
+  border-radius: $space-xxs;
+  color: $color-white;
+  display: inline-block;
+  font-family: $font-primary;
+  font-size: $font-s;
+  line-height: 1;
+  outline: none;
+  padding: $space-xs;
+  text-decoration: none;
+  transition-duration: 200ms;
+}
+
+.buttons__regular:hover {
+  background-color: $color-secondary-10;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
 .buttons__clear {
   background-color: transparent;
   border: none;

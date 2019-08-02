@@ -14,8 +14,8 @@ type ExpenseListStateProps = {
 
 export const ExpenseList = (props: ExpenseListStateProps) => (
   <div>
-    <ExpenseListFilters />
     <ExpensesSummary expenses={props.expenses} />
+    <ExpenseListFilters />
     <div>
       {props.expenses.length < 1 ? (
         <p>No expenses found.</p>
