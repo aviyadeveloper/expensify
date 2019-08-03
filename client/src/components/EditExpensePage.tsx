@@ -33,10 +33,20 @@ export class EditExpensePage extends React.Component<EditExpensePageProps> {
   render() {
     return (
       <div>
-        <h4>Editing expense</h4>
-        <button id="remove-expense-button" onClick={this.onRemoveExpense}>
-          Delete
-        </button>
+        <div className="page-header">
+          <div className="content-container">
+            <div className="page-header__top">
+              <h2 className="page-header__title">Editing Expense</h2>
+              <button
+                id="remove-expense-button"
+                className="buttons__regular"
+                onClick={this.onRemoveExpense}
+              >
+                Delete Expense
+              </button>
+            </div>
+          </div>
+        </div>
         <ExpenseForm
           onSubmit={this.onEditExpense}
           editMode={true}

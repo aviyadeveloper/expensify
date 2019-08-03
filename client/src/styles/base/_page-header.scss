@@ -4,12 +4,26 @@
   padding: $space-s 0;
 }
 
+.page-header__top {
+  display: flex;
+  flex-basis: 100%;
+}
+
 .page-header__title {
+  color: $color-secondary-20;
+  flex-grow: 1;
+  font-weight: 500;
+  font-size: $space-m;
+  margin: 0;
+}
+
+.page-header__subtitle {
   color: $color-special-05;
   flex-basis: 100%;
   font-weight: 500;
   font-size: $space-s;
   margin: 0;
+  margin-top: $space-s;
   margin-bottom: $space-s;
   span {
     font-weight: 700;

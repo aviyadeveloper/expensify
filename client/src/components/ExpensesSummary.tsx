@@ -12,7 +12,13 @@ type ExpensesSummaryProps = {
 export const ExpensesSummary = (props: ExpensesSummaryProps) => (
   <div className="page-header">
     <div className="content-container">
-      <h4 className="page-header__title">
+      <div className="page-header__top">
+        <h2 className="page-header__title">Dashboard</h2>
+        <Link to="add" className="buttons__regular">
+          Add Expense
+        </Link>
+      </div>
+      <h4 className="page-header__subtitle">
         Viewing <span>{props.expenses.length}</span> expense
         {props.expenses.length !== 1 && 's'} totalling in{' '}
         <span>
@@ -21,9 +27,6 @@ export const ExpensesSummary = (props: ExpensesSummaryProps) => (
           )}
         </span>
       </h4>
-      <Link to="add" className="buttons__regular">
-        Add Expense
-      </Link>
     </div>
   </div>
 );

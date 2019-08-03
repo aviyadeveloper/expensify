@@ -18,7 +18,12 @@ export class AddExpensePage extends React.Component<AddExpensePageProps> {
   render() {
     return (
       <div>
-        <h2>Expensify add expense page</h2>
+        <div className="page-header">
+          <div className="content-container">
+            <h2 className="page-header__title">Add New Expense</h2>
+          </div>
+        </div>
+
         <ExpenseForm onSubmit={this.runAddExpense} />
       </div>
     );

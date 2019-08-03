@@ -29,3 +29,8 @@
   line-height: 1.6;
   margin: $space-xs $space-m;
 }
+
+.layout__rtl {
+  display: flex;
+  justify-content: flex-end;
+}

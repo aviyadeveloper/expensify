@@ -49,3 +49,8 @@
   height: 100px;
   padding: $space-s;
 }
+
+.input-group__error {
+  color: $color-primary-15;
+  font-style: italic;
+}

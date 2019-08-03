@@ -131,10 +131,14 @@ export class ExpenseForm extends React.Component<
               placeholder="description"
             />
           </div>
-          {this.state.error && <p>{this.state.error}</p>}
-          <button className="buttons__regular">
-            {this.props.editMode ? 'Edit' : 'Add'}
-          </button>
+          {this.state.error && (
+            <p className="input-group__error">{this.state.error}</p>
+          )}
+          <div className="layout__rtl">
+            <button className="buttons__regular">
+              {this.props.editMode ? 'Save Expense' : 'Add Expense'}
+            </button>
+          </div>
         </form>
       </div>
     );
