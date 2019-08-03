@@ -88,40 +88,53 @@ export class ExpenseForm extends React.Component<
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <input
-            id="expense-form-name"
-            type="text"
-            placeholder="name"
-            autoFocus
-            value={this.state.name}
-            onChange={this.onNameChange}
-          />
-          <input
-            id="expense-form-amount"
-            type="text"
-            placeholder="amount"
-            value={this.state.amount}
-            onChange={this.onAmountChange}
-          />
-          <SingleDatePicker
-            id="expense-form-date"
-            date={moment()}
-            onDateChange={this.onDateChange}
-            focused={!!this.state.calendarFocused}
-            onFocusChange={this.onCalendarFocused}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <textarea
-            id="expense-form-description"
-            value={this.state.description}
-            onChange={this.onDescriptionChange}
-            placeholder="description"
-          />
+      <div className="content-container">
+        <form className="input-group-vertical" onSubmit={this.onSubmit}>
+          <div className="input-group__item">
+            <input
+              id="expense-form-name"
+              className="input-group__input"
+              type="text"
+              placeholder="name"
+              autoFocus
+              value={this.state.name}
+              onChange={this.onNameChange}
+            />
+          </div>
+          <div className="input-group__item">
+            <input
+              id="expense-form-amount"
+              className="input-group__input"
+              type="text"
+              placeholder="amount"
+              value={this.state.amount}
+              onChange={this.onAmountChange}
+            />
+          </div>
+          <div className="input-group__item">
+            <SingleDatePicker
+              id="expense-form-date"
+              date={moment()}
+              onDateChange={this.onDateChange}
+              focused={!!this.state.calendarFocused}
+              onFocusChange={this.onCalendarFocused}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+            />
+          </div>
+          <div className="input-group__item">
+            <textarea
+              id="expense-form-description"
+              className="input-group__input-long"
+              value={this.state.description}
+              onChange={this.onDescriptionChange}
+              placeholder="description"
+            />
+          </div>
           {this.state.error && <p>{this.state.error}</p>}
-          <button>{this.props.editMode ? 'Edit' : 'Add'}</button>
+          <button className="buttons__regular">
+            {this.props.editMode ? 'Edit' : 'Add'}
+          </button>
         </form>
       </div>
     );

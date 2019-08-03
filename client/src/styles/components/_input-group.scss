@@ -8,6 +8,17 @@
   }
 }
 
+.input-group-vertical {
+  @extend .input-group;
+  flex-direction: column;
+  margin: auto;
+
+  .input-group__item {
+    margin-bottom: $space-s;
+    margin-right: 0;
+  }
+}
+
 .input-group__item {
   display: flex;
   margin-right: $space-xxs;
@@ -22,12 +33,19 @@
 .input-group__input {
   border: 1px solid $color-grey-00; // Matching React-Dates style
   font-size: 19px; // Matching React-Dates style
-  padding: $space-xxs $space-s;
-  height: 50px;
   font-weight: 300;
+  height: 50px;
+  padding: $space-xxs $space-s;
 
   // mobile
   @media (max-width: $desktop-breakpoint) {
     flex-grow: 1;
   }
+}
+
+.input-group__input-long {
+  @extend .input-group__input;
+  flex-grow: 1;
+  height: 100px;
+  padding: $space-s;
 }
