@@ -1,0 +1,33 @@
+.input-group {
+  display: flex;
+  padding: $space-s 0;
+
+  // mobile
+  @media (max-width: $desktop-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.input-group__item {
+  display: flex;
+  margin-right: $space-xxs;
+
+  // mobile
+  @media (max-width: $desktop-breakpoint) {
+    margin-bottom: $space-xs;
+    margin-right: 0;
+  }
+}
+
+.input-group__input {
+  border: 1px solid $color-grey-00; // Matching React-Dates style
+  font-size: 19px; // Matching React-Dates style
+  padding: $space-xxs $space-s;
+  height: 50px;
+  font-weight: 300;
+
+  // mobile
+  @media (max-width: $desktop-breakpoint) {
+    flex-grow: 1;
+  }
+}
