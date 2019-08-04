@@ -14,6 +14,8 @@ import { login, logout } from './actions/auth';
 import { runSetExpenses } from './actions/expensesActions';
 import { firebase } from './firebase/firebase';
 
+import Preloader from './components/Preloader';
+
 const store: any = configureStore();
 
 const jsx = (
@@ -21,7 +23,8 @@ const jsx = (
     <AppRouter />
   </Provider>
 );
-ReactDOM.render(<p>loading...</p>, document.getElementById('myApp'));
+
+ReactDOM.render(<Preloader />, document.getElementById('myApp'));
 
 let hasRendered = false;
 const renderApp = () => {
