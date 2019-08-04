@@ -1,12 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render LoginPage 1`] = `
-<div>
-  <button
-    id="login-button"
-    onClick={[MockFunction]}
+<div
+  className="layout__background"
+>
+  <div
+    className="layout__card login__card"
   >
-    Login
-  </button>
+    <h1
+      className="layout__card__title"
+    >
+      Expensify
+    </h1>
+    <p
+      className="layout__card__subtitle"
+    >
+      Track your expenses easily
+    </p>
+    <button
+      className="buttons__button"
+      id="login-button"
+      onClick={[MockFunction]}
+    >
+      Login
+    </button>
+  </div>
 </div>
 `;

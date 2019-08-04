@@ -2,7 +2,6 @@
 
 exports[`Should generate expense list 1`] = `
 <div>
-  <Connect(ExpenseListFilters) />
   <Component
     expenses={
       Array [
@@ -37,53 +36,104 @@ exports[`Should generate expense list 1`] = `
       ]
     }
   />
-  <div>
-    <Connect(Component)
-      amount={100000}
-      createdAt="2011-12-31T00:00:00+02:00"
-      description="Gas bill for 2010"
-      id="1000"
-      key="1000"
-      name="Gas Bill"
-    />
-    <Connect(Component)
-      amount={50000}
-      createdAt="2013-12-31T00:00:00+02:00"
-      description="Water bill for 2012"
-      id="1001"
-      key="1001"
-      name="Water Bill"
-    />
-    <Connect(Component)
-      amount={25000}
-      createdAt="2015-06-05T00:00:00+03:00"
-      description="New sofa for living room"
-      id="1002"
-      key="1002"
-      name="New Sofa"
-    />
-    <Connect(Component)
-      amount={8000}
-      createdAt="2015-07-10T00:00:00+03:00"
-      description="Some basics"
-      id="1003"
-      key="1003"
-      name="Groceries"
-    />
+  <Connect(ExpenseListFilters) />
+  <div
+    className="content-container"
+  >
+    <div
+      className="show-on-desktop-only expense-list__headline"
+    >
+      <h5>
+        Expense
+      </h5>
+      <h5>
+        Amount
+      </h5>
+    </div>
+    <div
+      className="show-on-mobile-only expense-list__headline"
+    >
+      <h5>
+        Expenses
+      </h5>
+    </div>
+    <div
+      className="expense-list__body"
+    >
+      <Connect(Component)
+        amount={100000}
+        createdAt="2011-12-31T00:00:00+02:00"
+        description="Gas bill for 2010"
+        id="1000"
+        key="1000"
+        name="Gas Bill"
+      />
+      <Connect(Component)
+        amount={50000}
+        createdAt="2013-12-31T00:00:00+02:00"
+        description="Water bill for 2012"
+        id="1001"
+        key="1001"
+        name="Water Bill"
+      />
+      <Connect(Component)
+        amount={25000}
+        createdAt="2015-06-05T00:00:00+03:00"
+        description="New sofa for living room"
+        id="1002"
+        key="1002"
+        name="New Sofa"
+      />
+      <Connect(Component)
+        amount={8000}
+        createdAt="2015-07-10T00:00:00+03:00"
+        description="Some basics"
+        id="1003"
+        key="1003"
+        name="Groceries"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Should give expense not found message if expenses empty 1`] = `
 <div>
-  <Connect(ExpenseListFilters) />
   <Component
     expenses={Array []}
   />
-  <div>
-    <p>
-      No expenses found.
-    </p>
+  <Connect(ExpenseListFilters) />
+  <div
+    className="content-container"
+  >
+    <div
+      className="show-on-desktop-only expense-list__headline"
+    >
+      <h5>
+        Expense
+      </h5>
+      <h5>
+        Amount
+      </h5>
+    </div>
+    <div
+      className="show-on-mobile-only expense-list__headline"
+    >
+      <h5>
+        Expenses
+      </h5>
+    </div>
+    <div
+      className="expense-list__body"
+    >
+      <div
+        className="expense-list__item expense-list__item--message"
+      >
+        <p>
+          No expenses found.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 `;

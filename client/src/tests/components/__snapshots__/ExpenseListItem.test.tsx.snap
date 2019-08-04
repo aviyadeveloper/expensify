@@ -1,27 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should generate an expense list item 1`] = `
-<div>
-  <Link
-    replace={false}
-    to="/edit/1000"
-  >
-    <h5>
+<Link
+  className="expense-list__item"
+  replace={false}
+  to="/edit/1000"
+>
+  <div>
+    <h5
+      className="expense-list__item__title"
+    >
       Gas Bill
     </h5>
-  </Link>
-  <p>
-    Gas bill for 2010
-  </p>
-  <p>
-    <span>
-      $1,000.00
+    <span
+      className="expense-list__item__description"
+    >
+      Gas bill for 2010
     </span>
-     
-    / 
-    <span>
+    <span
+      className="expense-list__item__date"
+    >
       December 31st, 2011
     </span>
-  </p>
-</div>
+  </div>
+  <div
+    className="expense-list__item__amount-container"
+  >
+    <span
+      className="expense-list__item__amount"
+    >
+      $1,000.00
+    </span>
+  </div>
+</Link>
 `;

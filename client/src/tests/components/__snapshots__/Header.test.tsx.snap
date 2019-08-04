@@ -4,46 +4,39 @@ exports[`should render Header component 1`] = `
 <header
   className="navbar"
 >
-  <h1
-    className="navbar__app-title"
-  >
-    Expensify
-  </h1>
   <div
-    className="navbar__links-container"
+    className="content-container"
   >
-    <NavLink
-      activeClassName="active-link"
-      aria-current="page"
-      className="navbar__links-container__link"
-      exact={true}
+    <Link
+      className="navbar__title-link-container"
+      replace={false}
       to="/dashboard"
     >
-      Dashboard
-    </NavLink>
-    <NavLink
-      activeClassName="active-link"
-      aria-current="page"
-      className="navbar__links-container__link"
-      to="/add"
+      <h1
+        className="navbar__app-title"
+      >
+        Expensify
+      </h1>
+    </Link>
+    <div
+      className="navbar__links-container"
     >
-      Add Expense
-    </NavLink>
-    <NavLink
-      activeClassName="active-link"
-      aria-current="page"
-      className="navbar__links-container__link"
-      to="/help"
-    >
-      Help
-    </NavLink>
-    <button
-      className="navbar__links-container__link"
-      id="logout-button"
-      onClick={[MockFunction]}
-    >
-      Logout
-    </button>
+      <NavLink
+        activeClassName="active-link"
+        aria-current="page"
+        className="navbar__links-container__link"
+        to="/help"
+      >
+        Help
+      </NavLink>
+      <button
+        className="navbar__links-container__link buttons__clear"
+        id="logout-button"
+        onClick={[MockFunction]}
+      >
+        Logout
+      </button>
+    </div>
   </div>
 </header>
 `;

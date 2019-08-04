@@ -1,42 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render component properly with 1 expense 1`] = `
-<div>
-  <p>
-    Viewing 
-    1
-     expense
-     totalling in
-     
-    $1,000.00
-  </p>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <div
+      className="page-header__top"
+    >
+      <h2
+        className="page-header__title"
+      >
+        Dashboard
+      </h2>
+      <Link
+        className="buttons__regular"
+        replace={false}
+        to="add"
+      >
+        Add Expense
+      </Link>
+    </div>
+    <h4
+      className="page-header__subtitle"
+    >
+      Viewing 
+      <span>
+        1
+      </span>
+       expense
+       totalling in
+       
+      <span>
+        $1,000.00
+      </span>
+    </h4>
+  </div>
 </div>
 `;
 
 exports[`Should render component properly with multiple expenses 1`] = `
-<div>
-  <p>
-    Viewing 
-    4
-     expense
-    s
-     totalling in
-     
-    $1,830.00
-  </p>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <div
+      className="page-header__top"
+    >
+      <h2
+        className="page-header__title"
+      >
+        Dashboard
+      </h2>
+      <Link
+        className="buttons__regular"
+        replace={false}
+        to="add"
+      >
+        Add Expense
+      </Link>
+    </div>
+    <h4
+      className="page-header__subtitle"
+    >
+      Viewing 
+      <span>
+        4
+      </span>
+       expense
+      s
+       totalling in
+       
+      <span>
+        $1,830.00
+      </span>
+    </h4>
+  </div>
 </div>
 `;
 
 exports[`Should render empty component (no expenses visible) 1`] = `
-<div>
-  <p>
-    Viewing 
-    0
-     expense
-    s
-     totalling in
-     
-    $0.00
-  </p>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <div
+      className="page-header__top"
+    >
+      <h2
+        className="page-header__title"
+      >
+        Dashboard
+      </h2>
+      <Link
+        className="buttons__regular"
+        replace={false}
+        to="add"
+      >
+        Add Expense
+      </Link>
+    </div>
+    <h4
+      className="page-header__subtitle"
+    >
+      Viewing 
+      <span>
+        0
+      </span>
+       expense
+      s
+       totalling in
+       
+      <span>
+        $0.00
+      </span>
+    </h4>
+  </div>
 </div>
 `;
