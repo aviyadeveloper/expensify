@@ -16,12 +16,23 @@ export const ExpenseList = (props: ExpenseListStateProps) => (
   <div>
     <ExpensesSummary expenses={props.expenses} />
     <ExpenseListFilters />
-    <div>
-      {props.expenses.length < 1 ? (
-        <p>No expenses found.</p>
-      ) : (
-        props.expenses.map(e => <ExpenseListItem key={e.id} {...e} />)
-      )}
+    <div className="content-container">
+      <div className="show-on-desktop-only expense-list__headline">
+        <h5>Expense</h5>
+        <h5>Amount</h5>
+      </div>
+      <div className="show-on-mobile-only expense-list__headline">
+        <h5>Expenses</h5>
+      </div>
+      <div className="expense-list__body">
+        {props.expenses.length < 1 ? (
+          <div className="expense-list__item expense-list__item--message">
+            <p>No expenses found.</p>
+          </div>
+        ) : (
+          props.expenses.map(e => <ExpenseListItem key={e.id} {...e} />)
+        )}
+      </div>
     </div>
   </div>
 );

@@ -1,0 +1,101 @@
+.expense-list {
+  margin-bottom: $space-m;
+}
+
+.expense-list__headline {
+  background-color: $color-secondary-00;
+  color: $color-black;
+  display: flex;
+  font-size: $font-m;
+  flex-basis: 100%;
+  justify-content: space-between;
+
+  h5 {
+    font-weight: 500;
+    padding: $space-s $space-m;
+    margin: 0;
+  }
+}
+
+.expense-list__item {
+  align-items: center;
+  background-color: $color-white-brighter;
+  color: $color-black;
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-between;
+  padding: $space-m $space-m;
+  text-decoration: none;
+
+  .expense-list__item__amount-container {
+    @media (max-width: $desktop-breakpoint) {
+      margin-top: $space-s;
+    }
+  }
+
+  &:hover {
+    background-color: $color-grey-05;
+  }
+
+  // Stack amount veritcally for mobile devices
+  @media (max-width: $desktop-breakpoint) {
+    align-items: unset;
+    border-bottom: 1px solid $color-black;
+    flex-direction: column;
+    padding: $space-s $space-s;
+  }
+}
+
+.expense-list__item__title {
+  font-size: $font-m;
+  font-weight: 500;
+  padding-bottom: $space-s;
+  margin: 0;
+  word-break: break-all;
+
+  @media (max-width: $desktop-breakpoint) {
+    padding-bottom: $space-xs;
+  }
+}
+.expense-list__item__description {
+  display: block;
+  font-size: $font-s;
+  font-weight: 300;
+  padding-bottom: $space-s;
+  margin: 0;
+  word-break: break-all;
+
+  @media (max-width: $desktop-breakpoint) {
+    padding-bottom: $space-xs;
+  }
+}
+
+.expense-list__item__date {
+  font-size: $font-xs;
+  font-weight: 500;
+  margin: 0;
+  @media (max-width: $desktop-breakpoint) {
+    padding-bottom: $space-xs;
+  }
+}
+
+.expense-list__item__amount {
+  font-size: $font-s;
+  font-weight: 700;
+  padding: $space-s 0;
+  margin: 0;
+  word-break: break-all;
+}
+
+.expense-list__item--message {
+  justify-content: center;
+
+  &:hover {
+    background-color: $color-white-brighter;
+  }
+}
+
+.expense-list__body {
+  flex-grow: 1;
+  margin-bottom: $space-m;
+}

@@ -1,6 +1,5 @@
 .page-header {
   background-color: $color-secondary-00;
-  display: flex;
   padding: $space-s 0;
 }
 
@@ -13,7 +12,7 @@
   color: $color-secondary-20;
   flex-grow: 1;
   font-weight: 500;
-  font-size: $space-m;
+  font-size: $font-m;
   margin: 0;
 }
 
@@ -21,11 +20,15 @@
   color: $color-special-05;
   flex-basis: 100%;
   font-weight: 500;
-  font-size: $space-s;
+  font-size: $font-s;
   margin: 0;
   margin-top: $space-s;
   margin-bottom: $space-s;
   span {
     font-weight: 700;
+  }
+
+  @media (max-width: $desktop-breakpoint) {
+    font-size: $font-xs;
   }
 }

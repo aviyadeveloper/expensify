@@ -5,14 +5,20 @@
 }
 
 .navbar__title-link-container {
+  align-items: center;
   text-decoration: none;
+  display: flex;
 }
 
 .navbar__app-title {
   color: $color-primary-15;
   font-weight: 800;
-  font-size: $space-xl;
-  margin: $space-s 0;
+  font-size: $font-l;
+  margin: 0;
+
+  @media (max-width: $desktop-breakpoint) {
+    font-size: $font-s;
+  }
 }
 
 .navbar__links-container {
@@ -20,16 +26,26 @@
   display: flex;
   justify-content: space-around;
   margin: $space-m;
+  margin-right: 0;
 }
 
 .navbar__links-container__link {
   color: $color-secondary-00;
   font-family: $font-primary;
   font-weight: 500;
-  font-size: $space-m;
+  font-size: $font-m;
   margin: 0 $space-m;
   outline: none;
   text-decoration: none;
+
+  &:last-child {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  @media (max-width: $desktop-breakpoint) {
+    font-size: $font-s;
+  }
 }
 
 .navbar__links-container__link:hover {
