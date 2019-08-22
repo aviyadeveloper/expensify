@@ -10,6 +10,7 @@ type FiltersReducerState = {
   sortBy: FiltersSortBy;
   startDate: Moment | null;
   endDate: Moment | null;
+  tags: string[] | 0;
 };
 
 export { FiltersReducerState, FiltersSortBy };

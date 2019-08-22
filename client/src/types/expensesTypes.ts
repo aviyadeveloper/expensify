@@ -4,10 +4,11 @@ type Expense = {
   description?: string;
   amount?: number | undefined;
   createdAt?: string;
+  tags?: string[] | 0;
 };
 
 type expensesReducerState = {
-  expenses: Expense[];
+  expenses: Array<Expense>;
 };
 
 export { Expense, expensesReducerState };

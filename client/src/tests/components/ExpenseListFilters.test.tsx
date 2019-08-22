@@ -27,6 +27,7 @@ beforeEach(() => {
       sortByAmount={sortByAmountSpy}
       setStartDate={setStartDateSpy}
       setEndDate={setEndDateSpy}
+      availableTags={[]}
     />
   );
 });

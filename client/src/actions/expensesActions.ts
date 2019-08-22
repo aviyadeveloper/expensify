@@ -25,11 +25,12 @@ export const runAddExpense = (expenseData: Expense) => {
       name = '',
       description = '',
       amount = 0,
-      createdAt = moment().format()
+      createdAt = moment().format(),
+      tags = 0
     } = expenseData;
 
     // Build expense object
-    const expense: Expense = { name, description, amount, createdAt };
+    const expense: Expense = { name, description, amount, createdAt, tags };
 
     // Add expense to db
     return database
@@ -92,12 +93,21 @@ export const editExpense = (id: string, expense: Expense) => ({
 });
 
 export const runEditExpense = (id: string, expense: Expense) => {
+  // Avoid sending empty array to Firebase since it doesn't handle it
+  // Instead turn array to number 0 to signify empty array.
+  if (typeof expense.tags === 'object' && expense.tags.length < 1) {
+    expense.tags = 0;
+  }
+
   return (dispatch: Function, getState: Function) => {
     const uid = getState().auth.uid;
     return database
       .ref(`users/${uid}/expenses/${id}`)
       .update(expense)
       .then(() => {
+        if (expense.tags === 0) {
+          expense.tags = [];
+        }
         dispatch(editExpense(id, expense));
       })
       .catch(error => {
@@ -124,9 +134,13 @@ export const runSetExpenses = () => {
       .then(snapshot => {
         const expenses: Expense[] = [];
         snapshot.forEach(e => {
+          let value = e.val();
+          if (value.tags === 0) {
+            value.tags = [];
+          }
           expenses.push({
             id: e.key || undefined,
-            ...e.val()
+            ...value
           });
         });
         dispatch(setExpenses(expenses));

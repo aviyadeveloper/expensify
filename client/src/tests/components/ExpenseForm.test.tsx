@@ -91,6 +91,7 @@ test('should call onSubmit prop when valid data is submitted', () => {
     name: expenses[0].name,
     amount: expenses[0].amount,
     createdAt: expenses[0].createdAt,
-    description: expenses[0].description
+    description: expenses[0].description,
+    tags: expenses[0].tags
   });
 });

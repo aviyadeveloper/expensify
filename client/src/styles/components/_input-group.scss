@@ -12,10 +12,15 @@
   @extend .input-group;
   flex-direction: column;
   margin: auto;
+  width: 40vw;
 
   .input-group__item {
     margin-bottom: $space-s;
     margin-right: 0;
+  }
+
+  @media (max-width: $desktop-breakpoint) {
+    width: 100%;
   }
 }
 
@@ -34,13 +39,9 @@
   border: 1px solid $color-grey-00; // Matching React-Dates style
   font-size: 19px; // Matching React-Dates style
   font-weight: 300;
+  flex-grow: 1;
   height: 50px;
   padding: $space-xxs $space-s;
-
-  // mobile
-  @media (max-width: $desktop-breakpoint) {
-    flex-grow: 1;
-  }
 }
 
 .input-group__input-long {
@@ -48,6 +49,7 @@
   flex-grow: 1;
   height: 100px;
   padding: $space-s;
+  resize: none;
 }
 
 .input-group__error {

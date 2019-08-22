@@ -10,7 +10,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Date,
       startDate: null,
-      endDate: null
+      endDate: null,
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual(expenses);
@@ -22,7 +23,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Amount,
       startDate: null,
-      endDate: null
+      endDate: null,
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([
@@ -39,7 +41,8 @@ describe('Expense Selector', () => {
       name: 'bil',
       sortBy: FiltersSortBy.Date,
       startDate: null,
-      endDate: null
+      endDate: null,
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[0], expenses[1]]);
@@ -51,7 +54,8 @@ describe('Expense Selector', () => {
       name: 'er',
       sortBy: FiltersSortBy.Amount,
       startDate: null,
-      endDate: null
+      endDate: null,
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[3], expenses[1]]);
@@ -63,7 +67,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Date,
       startDate: moment('2014-01-01'),
-      endDate: null
+      endDate: null,
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[2], expenses[3]]);
@@ -75,7 +80,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Amount,
       startDate: moment('2014-01-01'),
-      endDate: null
+      endDate: null,
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[3], expenses[2]]);
@@ -87,7 +93,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Date,
       startDate: null,
-      endDate: moment('2014-01-01')
+      endDate: moment('2014-01-01'),
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[0], expenses[1]]);
@@ -99,7 +106,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Amount,
       startDate: null,
-      endDate: moment('2014-01-01')
+      endDate: moment('2014-01-01'),
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[1], expenses[0]]);
@@ -111,7 +119,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Date,
       startDate: moment('2012-01-20'),
-      endDate: moment('2015-06-20')
+      endDate: moment('2015-06-20'),
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[1], expenses[2]]);
@@ -123,7 +132,8 @@ describe('Expense Selector', () => {
       name: '',
       sortBy: FiltersSortBy.Amount,
       startDate: moment('2012-01-20'),
-      endDate: moment('2015-06-20')
+      endDate: moment('2015-06-20'),
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[2], expenses[1]]);
@@ -135,7 +145,8 @@ describe('Expense Selector', () => {
       name: ' ',
       sortBy: FiltersSortBy.Date,
       startDate: moment('2012-01-20'),
-      endDate: moment('2016-12-31')
+      endDate: moment('2016-12-31'),
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[1], expenses[2]]);
@@ -147,7 +158,8 @@ describe('Expense Selector', () => {
       name: ' ',
       sortBy: FiltersSortBy.Amount,
       startDate: moment('2012-01-20'),
-      endDate: moment('2016-12-31')
+      endDate: moment('2016-12-31'),
+      tags: []
     };
     const filtered = expensesSelector(expenses, conditions);
     expect(filtered).toEqual([expenses[2], expenses[1]]);

@@ -138,6 +138,16 @@ exports[`should render ExpenseForm correctly 1`] = `
       />
     </div>
     <div
+      className="input-group__item"
+    >
+      <TagsSelector
+        availableTags={Array []}
+        populateTags={[Function]}
+        suggestion=""
+        tags={Array []}
+      />
+    </div>
+    <div
       className="layout__rtl"
     >
       <button
@@ -285,6 +295,21 @@ exports[`should render ExpenseForm with expense data 1`] = `
         onChange={[Function]}
         placeholder="description"
         value="Gas bill for 2010"
+      />
+    </div>
+    <div
+      className="input-group__item"
+    >
+      <TagsSelector
+        availableTags={Array []}
+        populateTags={[Function]}
+        suggestion=""
+        tags={
+          Array [
+            "blue",
+            "yellow",
+          ]
+        }
       />
     </div>
     <div

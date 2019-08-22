@@ -3,6 +3,7 @@ import moment, { Moment } from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import { Expense } from '../types/expensesTypes';
 import { isNull } from 'util';
+import { TagsSelector } from './TagsSelector';
 
 type ExpenseFormProps = {
   onSubmit?: (expense: Expense) => void;
@@ -10,9 +11,11 @@ type ExpenseFormProps = {
   description?: string;
   amount?: number;
   createdAt?: string;
+  tags?: string[] | 0;
   calendarFocused?: boolean | null;
   error?: string;
   editMode?: boolean;
+  availableTags?: string[];
 };
 
 interface ExpenseFormState {
@@ -20,6 +23,7 @@ interface ExpenseFormState {
   description: string;
   amount: string;
   createdAt: string;
+  tags: string[] | 0;
   calendarFocused: boolean | null;
   error: string;
   editMode?: boolean;
@@ -36,6 +40,7 @@ export class ExpenseForm extends React.Component<
     createdAt:
       (this.props.createdAt && moment(this.props.createdAt).format()) ||
       moment().format(),
+    tags: this.props.tags || [],
     calendarFocused: false,
     error: '',
     editMode: this.props.editMode
@@ -67,6 +72,10 @@ export class ExpenseForm extends React.Component<
     this.setState({ description });
   };
 
+  populateTags = (tags: string[]): void => {
+    this.setState({ tags });
+  };
+
   onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -80,7 +89,8 @@ export class ExpenseForm extends React.Component<
             name: this.state.name,
             amount: parseFloat(this.state.amount) * 100,
             description: this.state.description,
-            createdAt: this.state.createdAt
+            createdAt: this.state.createdAt,
+            tags: this.state.tags
           });
       }
     }
@@ -129,6 +139,14 @@ export class ExpenseForm extends React.Component<
               value={this.state.description}
               onChange={this.onDescriptionChange}
               placeholder="description"
+            />
+          </div>
+          <div className="input-group__item">
+            <TagsSelector
+              tags={this.state.tags}
+              populateTags={this.populateTags}
+              availableTags={this.props.availableTags || []}
+              suggestion=""
             />
           </div>
           {this.state.error && (

@@ -42,6 +42,21 @@ exports[`should render ExpenseListFilters properly 1`] = `
     <div
       className="input-group__item"
     >
+      <select
+        className="input-group__input"
+        onChange={[Function]}
+        value={Array []}
+      >
+        <option
+          value=""
+        >
+          Filter by tags
+        </option>
+      </select>
+    </div>
+    <div
+      className="input-group__item"
+    >
       <withStyles(DateRangePicker)
         anchorDirection="left"
         appendToBody={false}
@@ -180,6 +195,25 @@ exports[`should render ExpenseListFilters with altFilters properly 1`] = `
           value={1}
         >
           Amount
+        </option>
+      </select>
+    </div>
+    <div
+      className="input-group__item"
+    >
+      <select
+        className="input-group__input"
+        onChange={[Function]}
+        value={
+          Array [
+            "blue",
+          ]
+        }
+      >
+        <option
+          value=""
+        >
+          Filter by tags
         </option>
       </select>
     </div>

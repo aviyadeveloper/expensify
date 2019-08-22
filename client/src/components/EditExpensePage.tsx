@@ -13,6 +13,7 @@ export type EditExpensePageProps = {
   match: match<{ id: string | undefined }>;
   expense: Expense | undefined;
   history: History;
+  availableTags: string[];
 };
 
 export class EditExpensePage extends React.Component<EditExpensePageProps> {
@@ -50,6 +51,7 @@ export class EditExpensePage extends React.Component<EditExpensePageProps> {
         <ExpenseForm
           onSubmit={this.onEditExpense}
           editMode={true}
+          availableTags={this.props.availableTags}
           {...this.props.expense}
         />
       </div>
@@ -57,13 +59,13 @@ export class EditExpensePage extends React.Component<EditExpensePageProps> {
   }
 }
 
-const mapStateToProps = (
-  state: storeStateType,
-  props: EditExpensePageProps
-) => ({
+const mapStateToProps = (state: any, props: EditExpensePageProps) => ({
   expense: state.expenses.find(
     (expense: Expense): boolean => expense.id === props.match.params.id
-  )
+  ),
+  availableTags: Array.from(
+    new Set(state.expenses.flatMap((e: Expense) => e.tags))
+  ) as string[]
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({

@@ -27,11 +27,13 @@ beforeEach(done => {
     [id: string]: Expense;
   };
   let expensesData: expensesData = {};
-  expenses.forEach(({ id, name, amount, createdAt, description }: Expense) => {
-    id
-      ? (expensesData[id] = { name, amount, createdAt, description })
-      : undefined;
-  });
+  expenses.forEach(
+    ({ id, name, amount, createdAt, description, tags }: Expense) => {
+      id
+        ? (expensesData[id] = { name, amount, createdAt, description, tags })
+        : undefined;
+    }
+  );
   database
     .ref(`/users/${uid}/expenses`)
     .set(expensesData)
@@ -76,7 +78,8 @@ describe('Expenses Actions', () => {
       name: 'foo',
       amount: 10025,
       createdAt: moment().format(),
-      description: 'bar'
+      description: 'bar',
+      tags: ['blue', 'yellow']
     };
 
     store
@@ -108,7 +111,8 @@ describe('Expenses Actions', () => {
       name: 'foobar',
       amount: 0,
       createdAt: moment().format(),
-      description: ''
+      description: '',
+      tags: 0
     };
     store
       .dispatch(runAddExpense(expenseData))
@@ -139,7 +143,8 @@ describe('Expenses Actions', () => {
       name: 'blabla',
       description: 'boop',
       amount: 1000,
-      createdAt: moment().format()
+      createdAt: moment().format(),
+      tags: []
     };
     const editObject = editExpense(id, expenseData);
     expect(editObject).toEqual({
@@ -180,7 +185,8 @@ describe('Expenses Actions', () => {
           name: 'edited',
           amount: 12345,
           description: expenses[1].description,
-          createdAt: expenses[1].createdAt
+          createdAt: expenses[1].createdAt,
+          tags: expenses[1].tags
         });
         done();
       });

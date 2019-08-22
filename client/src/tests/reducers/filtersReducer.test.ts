@@ -9,7 +9,8 @@ describe('Reducer Filter', () => {
       name: '',
       sortBy: FiltersSortBy.Date,
       startDate: moment().startOf('month'),
-      endDate: moment().endOf('month')
+      endDate: moment().endOf('month'),
+      tags: []
     });
   });
 

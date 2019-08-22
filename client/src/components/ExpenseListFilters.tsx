@@ -5,12 +5,14 @@ import {
   sortByDate,
   sortByAmount,
   setStartDate,
-  setEndDate
+  setEndDate,
+  setTagsFilter
 } from '../actions/filtersActions';
 import { FiltersSortBy } from '../types/filtersTypes';
 import { DateRangePicker } from 'react-dates';
 import { Moment } from 'moment';
 import { Dispatch } from 'redux';
+import { Expense } from '../types/expensesTypes';
 
 export class ExpenseListFilters extends React.Component<any, any> {
   state = {
@@ -34,6 +36,12 @@ export class ExpenseListFilters extends React.Component<any, any> {
 
   onNameChange = (event: FormEvent<HTMLInputElement>) => {
     this.props.setNameFilter(event.currentTarget.value || '');
+  };
+
+  onTagsChange = (event: FormEvent<HTMLSelectElement>) => {
+    event.currentTarget.value.length > 0
+      ? this.props.setTagsFilter([event.currentTarget.value])
+      : this.props.setTagsFilter(0);
   };
 
   onFilterTypeChange = (event: FormEvent<HTMLSelectElement>) => {
@@ -73,6 +81,20 @@ export class ExpenseListFilters extends React.Component<any, any> {
             </select>
           </div>
           <div className="input-group__item">
+            <select
+              className="input-group__input"
+              value={this.props.filters.tags}
+              onChange={this.onTagsChange}
+            >
+              <option value="">Filter by tags</option>
+              {this.props.availableTags.map((tag: string) => (
+                <option key={tag} value={tag}>
+                  {tag}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="input-group__item">
             <DateRangePicker
               startDate={this.props.filters.startDate}
               startDateId={'sortByDate-filter-startDate'}
@@ -93,7 +115,11 @@ export class ExpenseListFilters extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => ({
-  filters: state.filters
+  filters: state.filters,
+  expenses: state.expenses,
+  availableTags: Array.from(
+    new Set(state.expenses.flatMap((e: Expense) => e.tags))
+  ).sort()
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -111,6 +137,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
   setEndDate: (endDate: Moment | null) => {
     dispatch(setEndDate(endDate));
+  },
+  setTagsFilter: (tags: string[]) => {
+    dispatch(setTagsFilter(tags));
   }
 });
 export default connect(

@@ -1,28 +1,28 @@
-import { Moment } from "moment";
+import { Moment } from 'moment';
 
 // SET_NAME_FILTER
 export const setNameFilter = (
-  name: string = ""
+  name: string = ''
 ): { type: string; name: string } => ({
-  type: "SET_NAME_FILTER",
+  type: 'SET_NAME_FILTER',
   name
 });
 
 // SORT_BY_DATE
 export const sortByDate = (): { type: string } => ({
-  type: "SORT_BY_DATE"
+  type: 'SORT_BY_DATE'
 });
 
 // SORT_BY_AMOUNT
 export const sortByAmount = (): { type: string } => ({
-  type: "SORT_BY_AMOUNT"
+  type: 'SORT_BY_AMOUNT'
 });
 
 // SET_START_DATE
 export const setStartDate = (
   date: Moment | null
 ): { type: string; date: Moment | null } => ({
-  type: "SET_START_DATE",
+  type: 'SET_START_DATE',
   date
 });
 
@@ -30,6 +30,14 @@ export const setStartDate = (
 export const setEndDate = (
   date: Moment | null
 ): { type: string; date: Moment | null } => ({
-  type: "SET_END_DATE",
+  type: 'SET_END_DATE',
   date
+});
+
+// SET_TAGS_FILTER
+export const setTagsFilter = (
+  tags: string[] = []
+): { type: string; tags: string[] | 0 } => ({
+  type: 'SET_TAGS_FILTER',
+  tags
 });

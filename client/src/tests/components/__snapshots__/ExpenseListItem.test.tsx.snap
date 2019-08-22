@@ -22,6 +22,22 @@ exports[`should generate an expense list item 1`] = `
     >
       December 31st, 2011
     </span>
+    <div
+      className="expense-list__item__tags"
+    >
+      <p
+        className="expense-list__item__tags__tag"
+        key="blue"
+      >
+        blue
+      </p>
+      <p
+        className="expense-list__item__tags__tag"
+        key="yellow"
+      >
+        yellow
+      </p>
+    </div>
   </div>
   <div
     className="expense-list__item__amount-container"

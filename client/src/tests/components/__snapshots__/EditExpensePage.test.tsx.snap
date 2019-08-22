@@ -28,12 +28,19 @@ exports[`should render EditExpensePage properly 1`] = `
   </div>
   <ExpenseForm
     amount={100000}
+    availableTags={Array []}
     createdAt="2011-12-31T00:00:00+02:00"
     description="Gas bill for 2010"
     editMode={true}
     id="1000"
     name="Gas Bill"
     onSubmit={[Function]}
+    tags={
+      Array [
+        "blue",
+        "yellow",
+      ]
+    }
   />
 </div>
 `;

@@ -78,6 +78,9 @@
     padding-bottom: $space-xs;
   }
 }
+.expense-list__item__amount-container {
+  min-width: max-content;
+}
 
 .expense-list__item__amount {
   font-size: $font-s;
@@ -98,4 +101,20 @@
 .expense-list__body {
   flex-grow: 1;
   margin-bottom: $space-m;
+}
+
+.expense-list__item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: $space-m;
+}
+
+.expense-list__item__tags__tag {
+  background-color: $color-secondary-10;
+  border-radius: $space-xxs;
+  color: $color-white;
+  font-family: $font-primary;
+  font-size: $font-xs;
+  margin: 0px $space-xs $space-xs 0px;
+  padding: $space-xs;
 }

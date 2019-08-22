@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export default (
   expenses: Expense[],
-  { name, startDate, endDate, sortBy }: FiltersReducerState
+  { name, startDate, endDate, sortBy, tags }: FiltersReducerState
 ): Expense[] => {
   return expenses
     .filter(expense => {
@@ -21,7 +21,19 @@ export default (
           ? expense.name.toLocaleLowerCase().includes(name.toLowerCase())
           : false;
 
-      return startDateMatch && endDateMatch && nameMatch && expense;
+      const tagsMatch =
+        tags !== [] && tags !== 0 && tags.length > 0
+          ? tags.some(e => {
+              if (expense.tags) {
+                return expense.tags.includes(e);
+              } else {
+                return false;
+              }
+            })
+          : true;
+      return (
+        startDateMatch && endDateMatch && nameMatch && expense && tagsMatch
+      );
     })
     .sort(
       (a, b): number => {

@@ -34,6 +34,7 @@ beforeEach(() => {
       runRemoveExpense={runRemoveExpenseSpy}
       history={history}
       match={match}
+      availableTags={[]}
     />
   );
 });

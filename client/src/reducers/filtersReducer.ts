@@ -4,8 +4,9 @@ import moment from 'moment';
 export const filtersReducerDefaultState: FiltersReducerState = {
   name: '',
   sortBy: FiltersSortBy.Date,
-  startDate: moment().startOf('month'),
-  endDate: moment().endOf('month')
+  startDate: moment().startOf('year'),
+  endDate: moment().endOf('month'),
+  tags: []
 };
 
 export default (
@@ -15,6 +16,8 @@ export default (
   switch (action.type) {
     case 'SET_NAME_FILTER':
       return { ...state, name: action.name };
+    case 'SET_TAGS_FILTER':
+      return { ...state, tags: action.tags };
     case 'SORT_BY_DATE':
       return { ...state, sortBy: FiltersSortBy.Date };
     case 'SORT_BY_AMOUNT':

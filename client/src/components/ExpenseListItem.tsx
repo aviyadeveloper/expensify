@@ -15,6 +15,16 @@ export const ExpenseListItem = (props: Expense) => (
       <span className="expense-list__item__date">
         {moment(props.createdAt).format('MMMM Do, YYYY')}
       </span>
+      <div className="expense-list__item__tags">
+        {props.tags &&
+          props.tags.map(tag => {
+            return (
+              <p key={tag} className="expense-list__item__tags__tag">
+                {tag}
+              </p>
+            );
+          })}
+      </div>
     </div>
     <div className="expense-list__item__amount-container">
       <span className="expense-list__item__amount">
